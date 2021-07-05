@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * <big>计时器工具  Timer</big>
  *
- * <p>搭配工具类TimelimeGame和TimelineChara，控制游戏内时间的变化。由于搭配的它们被设置成每0.1秒刷新一次，现实中每过1秒，
+ * <p>搭配时间线动画TimelimeGame和TimelineChara，控制游戏内时间的变化。由于这些动画被设置成每0.1秒刷新一次，现实中每过1秒，
  * value值会增加10，使用时需注意数据转换。</p>
  *
  * @author 分柿方橙
