@@ -90,9 +90,7 @@ public class MusicPlayer {
     public byte recentMusicIndex;
 
     /**
-     * <big>暂停音乐  Pause Music</big>
-     *
-     * <p>暂停正在播放的所有BGM。</p>
+     * 暂停音乐：暂停正在播放的所有BGM。
      */
     public void musicOff(){
         for (byte i = 1; i <= 9; i++){
@@ -101,9 +99,7 @@ public class MusicPlayer {
     }
 
     /**
-     * <big>切换音乐  Cut Music</big>
-     *
-     * <p>以当前音量无限循环播放指定BGM，并暂停其他所有BGM。</p>
+     * 切换音乐：以当前音量无限循环播放指定BGM，并暂停其他所有BGM。
      *
      * @param order 设置音乐序号
      * @param volume 设置音量
@@ -117,9 +113,7 @@ public class MusicPlayer {
     }
 
     /**
-     * <big>调节音量  Adjust Volume</big>
-     *
-     * <p>将音量设置为给定百分值。</p>
+     * 调节音量：将音量设置为给定百分值。
      *
      * @param volume 设置音量
      */
