@@ -1,4 +1,4 @@
-package ToolBox;
+package Musics;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -6,7 +6,7 @@ import javafx.scene.media.MediaPlayer;
 import java.io.File;
 
 /**
- * <big>音乐播放器工具  Music Player</big>
+ * <big>背景音乐播放器工具  BGM Player</big>
  *
  * <p>可读取 src/Musics/BGM 里的音乐，进行音乐播放相关操作。</p>
  *
@@ -14,7 +14,7 @@ import java.io.File;
  * @version ver.0.1 (2021.7.5)
  * @since projVer.0.1 (2021.7.5)
  */
-public class MusicPlayer {
+public class BGMPlayer {
 
     /**
      * File[]类型音乐列表：
@@ -29,24 +29,24 @@ public class MusicPlayer {
      *    8   恶地 夜晚   心惊胆战洞穴探险
      *    9   恶地 最终   绯红色的征兆
      */
-    public static final File[] MUSIC_LIST = { null,                                               // 0, 占位
-            new File(String.valueOf(MusicPlayer.class.getResourceAsStream(
+    public static final File[] MUSIC_LIST = { null,                                         // 0, 占位
+            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
                     "src/Musics/Memories of the Great Tree.mp3"))),                   // 1
-            new File(String.valueOf(MusicPlayer.class.getResourceAsStream(
+            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
                     "src/Musics/One Star by the Next.mp3"))),                         // 2
-            new File(String.valueOf(MusicPlayer.class.getResourceAsStream(
+            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
                     "src/Musics/Pitch Black.mp3"))),                                  // 3
-            new File(String.valueOf(MusicPlayer.class.getResourceAsStream(
+            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
                     "src/Musics/Song of the Hoarfrost.mp3"))),                        // 4
-            new File(String.valueOf(MusicPlayer.class.getResourceAsStream(
+            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
                     "src/Musics/Flowers Blooming in the Empty Sky.mp3"))),            // 5
-            new File(String.valueOf(MusicPlayer.class.getResourceAsStream(
+            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
                     "src/Musics/Verethraghna.mp3"))),                                 // 6
-            new File(String.valueOf(MusicPlayer.class.getResourceAsStream(
+            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
                     "src/Musics/Blazing Earth.mp3"))),                                // 7
-            new File(String.valueOf(MusicPlayer.class.getResourceAsStream(
+            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
                     "src/Musics/Exciting Cave Exploration.mp3"))),                    // 8
-            new File(String.valueOf(MusicPlayer.class.getResourceAsStream(
+            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
                     "src/Musics/Crimson Omen.mp3")))};                                // 9
 
     /**
@@ -75,7 +75,7 @@ public class MusicPlayer {
     };
 
     /**
-     *  最近一次播放曲子的序号：
+     *  最近一次播放的音乐的序号：
      *    0   占位未使用
      *    1   平原 白天   巨树的记忆
      *    2   平原 夜晚   在一颗星的旁边
@@ -90,7 +90,7 @@ public class MusicPlayer {
     public byte recentMusicIndex;
 
     /**
-     * 暂停音乐：暂停正在播放的所有BGM。
+     * 暂停音乐：暂停正在播放的所有音乐。
      */
     public void musicOff(){
         for (byte i = 1; i <= 9; i++){
@@ -99,7 +99,7 @@ public class MusicPlayer {
     }
 
     /**
-     * 切换音乐：以当前音量无限循环播放指定BGM，并暂停其他所有BGM。
+     * 切换音乐：以当前音量无限循环播放指定音乐，并暂停其他所有音乐。
      *
      * @param order 设置音乐序号
      * @param volume 设置音量
