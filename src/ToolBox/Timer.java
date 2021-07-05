@@ -2,29 +2,53 @@ package ToolBox;
 
 import java.io.Serializable;
 
+/**
+ * <big>计时器工具  Timer</big>
+ *
+ * <p>搭配工具类TimelimeGame和TimelineChara，控制游戏内时间的变化。由于搭配的它们被设置成每0.1秒刷新一次，现实中每过1秒，
+ * value值会增加10，使用时需注意数据转换。</p>
+ *
+ * @author 分柿方橙
+ * @version ver.0.1 (2021.7.5)
+ * @since projVer.0.1 (2021.7.5)
+ */
 public class Timer implements Serializable {
-    public int value; //时间值
+    /** 时间值 */
+    private int value;
 
-    /* 建造器·不含参 */
+    /** 不含参建造器：创建一个当前时间值为0的计时器。
+     */
     public Timer(){ value = 0; }
 
-    /* 建造器·含参 */
+    /** 含参建造器：创建一个当前时间值为给定数值的计时器。
+     *
+     * @param value 给定时间值
+     */
     public Timer(int value){ this.value = value; }
 
-    /* 方法·开始 */
-    public void start() { value++; }
+    /** 增加：每调用一次该方法，时间值增加1。
+     */
+    public void add() { value++; }
 
-    /* 方法·清零 */
+    /** 清零：将时间值强制更改为初始值0。
+     */
     public void clear() { value = 0; }
 
-    /* 方法·获取值 */
+    /** 获取值：获取计时器的时间值。
+     */
     public int getValue() { return value; }
 
-    /* 方法·将时间值转换为String */
-    public String toString() { return String.valueOf(value); }
+    /** 时间值转换为字符串：
+     *
+     * @return 时间值的字符串
+     */
+    public String ValueToString() { return String.valueOf(value); }
 
-    /* 方法·转换成时分制时间 */
-    public String toTime(byte mode){
+    /** 时间值转换为时分制时间：
+     *
+     * @return 时分制时间
+     */
+    public String ValuetoTime(byte mode){
         int hour; int minu;
         String h; String m;
 
@@ -34,7 +58,7 @@ public class Timer implements Serializable {
             if (( value / 10 ) % 480 < 300){ hour = (( value / 10 ) / 20 + 9) % 24;
             } else { hour = (( value / 10 ) / 20 + 9 - 24) % 24;
             }
-            if (hour < 10){ h = "0" + String.valueOf(hour);
+            if (hour < 10){ h = "0" + hour;
             } else { h = String.valueOf(hour);
             }
             minu = ( value / 10 ) % 20;
