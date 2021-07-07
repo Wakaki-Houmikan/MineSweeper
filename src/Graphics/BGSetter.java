@@ -24,5 +24,5 @@ public class BGSetter {
 
     public static final ImageView Main = new ImageView(String.valueOf(BGSetter.class.getResource("/Graphics/BG/bgMain.png")));
     public static final ImageView Help = new ImageView(String.valueOf(BGSetter.class.getResource("/Graphics/BG/bgHelp.png")));
-    public static final ImageView Update = new ImageView(String.valueOf(BGSetter.class.getResource("/Graphics/BG/bgUpdate.png")));
+    public static final ImageView Develop = new ImageView(String.valueOf(BGSetter.class.getResource("/Graphics/BG/bgUpdate.png")));
 }
