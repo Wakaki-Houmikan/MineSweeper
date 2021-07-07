@@ -1,13 +1,12 @@
 package MineSweeper;
 
 import Graphics.BGSetter;
+import Module.Documents.Develop;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -17,7 +16,8 @@ import javafx.stage.Stage;
  * Project Mine Sweeper Java Edition
  *
  * @author 久置乙醚工作室 · 分柿方橙Spikey
- * @version 1.0
+ * @version ver 1.0 (2021.7.1)
+ * @since ver 1.0.0 (2021.7.1)
  */
 public class MineSweeper extends Application {
 
@@ -112,7 +112,7 @@ public class MineSweeper extends Application {
     }
 
     public void preButDevelopLog(ActionEvent event) {
-//        new DevDocPlane();
+        new Develop();
     }
 
     public static void main(String[] args)
