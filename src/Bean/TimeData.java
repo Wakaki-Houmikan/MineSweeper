@@ -13,38 +13,47 @@ import java.io.Serializable;
  * @since projVer.0.1 (2021.7.5)
  */
 public class TimeData implements Serializable {
-    /** 时间值 */
+    /**
+     * 时间值
+     */
     private int value;
 
-    /** 不含参建造器：创建一个当前时间值为0的计时器。
+    /**
+     * 不含参建造器：创建一个当前时间值为0的计时器。
      */
     public TimeData(){ value = 0; }
 
-    /** 含参建造器：创建一个当前时间值为给定数值的计时器。
+    /**
+     * 含参建造器：创建一个当前时间值为给定数值的计时器。
      *
      * @param value 给定时间值
      */
     public TimeData(int value){ this.value = value; }
 
-    /** 增加：每调用一次该方法，时间值增加1。
+    /**
+     * 增加：每调用一次该方法，时间值增加1。
      */
     public void add() { value++; }
 
-    /** 清零：将时间值强制更改为初始值0。
+    /**
+     * 清零：将时间值强制更改为初始值0。
      */
     public void clear() { value = 0; }
 
-    /** 获取值：获取计时器的时间值。
+    /**
+     * 获取值：获取计时器的时间值。
      */
     public int getValue() { return value; }
 
-    /** 时间值转换为字符串：
+    /**
+     * 时间值转换为字符串：
      *
      * @return 时间值的字符串
      */
     public String ValueToString() { return String.valueOf(value); }
 
-    /** 时间值转换为时分制时间：
+    /**
+     * 时间值转换为时分制时间：
      *
      * @return 时分制时间
      */
