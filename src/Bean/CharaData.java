@@ -9,7 +9,7 @@ import java.io.Serializable;
  *
  * @author 分柿方橙
  * @version ver 1.2 (2021.7.7)
- * @since ver 1.0.1 (2021.7.5)
+ * @since ver 1.1.0 (2021.7.5)
  */
 public class CharaData implements Serializable {
 

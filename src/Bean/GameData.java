@@ -8,8 +8,8 @@ import java.io.Serializable;
  * <p>记录游戏数据。</p>
  *
  * @author 分柿方橙
- * @version ver 1.2 (2021.7.7)
- * @since ver 1.0.1 (2021.7.5)
+ * @version ver 1.3 (2021.7.7)
+ * @since ver 1.1.0 (2021.7.5)
  */
 public class GameData implements Serializable {
 
@@ -36,6 +36,9 @@ public class GameData implements Serializable {
 
     private int stepTotal; //记录总步数
     private int timeTotal; //记录总时间
+
+    private byte[][] mapMatrix; //地图矩阵
+    private String[][] statusMatrix; //状态矩阵
     
     private boolean loadSave; //是个存档
 
@@ -59,13 +62,17 @@ public class GameData implements Serializable {
      * @param modCure 多人模式：开启治愈模式
      * @param stepTotal 记录走过的步数
      * @param timeTotal 记录经过的时间
+     * @param mapMatrix 地图矩阵：-1为雷，0~8为周边雷数
+     * @param statusMatrix 状态矩阵：null 无状态；flagged 插旗；opened 开启
      * @param loadSave 是否为读取存档（true：该数据从存档中读取得到；false：不是）
      */
     public GameData(int blockNumX, int blockNumY, int mineNum, byte timeAttri, byte landAttri, byte charaNum,
                     boolean charaRedChoosed, boolean charaBluChoosed, boolean charaGreChoosed, boolean charaPulChoosed,
                     boolean modCascade, int modStepLimit, int modTimeLimit,
                     boolean modLife, boolean modCheat, boolean modCure,
-                    int stepTotal, int timeTotal, boolean loadSave) {
+                    int stepTotal, int timeTotal,
+                    byte[][] mapMatrix, String[][] statusMatrix,
+                    boolean loadSave) {
         this.blockNumX = blockNumX;
         this.blockNumY = blockNumY;
         this.mineNum = mineNum;
@@ -84,6 +91,8 @@ public class GameData implements Serializable {
         this.modCure = modCure;
         this.stepTotal = stepTotal;
         this.timeTotal = timeTotal;
+        this.mapMatrix = mapMatrix;
+        this.statusMatrix = statusMatrix;
         this.loadSave = loadSave;
     }
 
@@ -141,6 +150,12 @@ public class GameData implements Serializable {
 
     public int getTimeTotal() { return timeTotal; }
     public void setTimeTotal(int timeTotal) { this.timeTotal = timeTotal; }
+
+    public byte[][] getMapMatrix() { return mapMatrix; }
+    public void setMapMatrix(byte[][] mapMatrix) { this.mapMatrix = mapMatrix; }
+
+    public String[][] getStatusMatrix() { return statusMatrix; }
+    public void setStatusMatrix(String[][] statusMatrix) { this.statusMatrix = statusMatrix; }
 
     public boolean isLoadSave() { return loadSave; }
     public void setLoadSave(boolean loadSave) { this.loadSave = loadSave; }

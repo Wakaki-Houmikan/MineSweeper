@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author 分柿方橙
  * @version ver.0.1 (2021.7.5)
- * @since projVer.0.1 (2021.7.5)
+ * @since ver1.1.0 (2021.7.5)
  */
 public class TimeData implements Serializable {
     /**
