@@ -1,11 +1,11 @@
-package Data;
+package Bean;
 
 import java.io.Serializable;
 
 /**
- * <big>计时器数据  Time Data</big>
+ * <strong><big>计时器数据  Time Data</big></strong>
  *
- * <p>搭配时间线动画TimelimeGame和TimelineChara，记录游戏内时间的变化。由于这些动画被设置成每0.1秒刷新一次，现实中每过1秒，
+ * <p>搭配时间线动画TimelimeGame和TimelineChara，利用自带变量value记录游戏内时间的变化。由于这些动画被设置成每0.1秒刷新一次，现实中每过1秒，
  * value值会增加10，使用时需注意数据转换。</p>
  *
  * @author 分柿方橙
