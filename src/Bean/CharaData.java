@@ -1,8 +1,16 @@
-package Data;
+package Bean;
 
 import java.io.Serializable;
 
-/* 角色数据 */
+/**
+ * <strong><big>角色数据  Character Data</big></strong>
+ *
+ * <p>记录游戏中各角色的数据。</p>
+ *
+ * @author 分柿方橙
+ * @version ver 1.2 (2021.7.7)
+ * @since ver 1.0.1 (2021.7.5)
+ */
 public class CharaData implements Serializable {
 
     private boolean choosed; // 选中
@@ -24,7 +32,24 @@ public class CharaData implements Serializable {
     private boolean dead;    // 有没有死
     private boolean win;     // 有没有赢
 
-    /* 角色被选中时创建的CharaData */
+    /**
+     * 一般构造器：记录角色的属性值。
+     * @param choosed 是否选中（这里应为true）
+     * @param color 颜色（红、蓝、绿、紫）
+     * @param name 角色名
+     * @param score 得分
+     * @param miss 失误
+     * @param timeLim 时间上限
+     * @param stepLim 步数上限
+     * @param lifeLim 生命上限
+     * @param timeLeft 剩余时间
+     * @param stepLeft 剩余步数
+     * @param lifeLeft 剩余生命
+     * @param onRound 是否处于现回合
+     * @param robot 是否处于机器人状态
+     * @param dead 是否处于死亡状态
+     * @param win 是否被判定为胜利
+     */
     public CharaData(boolean choosed, String color, String name, int score, int miss,
                      int timeLim, int stepLim, int lifeLim,
                      int timeLeft, int stepLeft, int lifeLeft,
@@ -46,12 +71,14 @@ public class CharaData implements Serializable {
         this.win = win;
     }
 
-    /* 角色没有被选中时创建的CharaData */
+    /**
+     * 简单构造器：只将choosed（“是否选中”）属性记录为false。
+     */
     public CharaData(boolean choosed) {
         this.choosed = choosed;
     }
 
-    /* set get方法 */
+    /* 一系列的set get方法 */
     public boolean isChoosed() { return choosed; }
     public void setChoosed(boolean choosed) { this.choosed = choosed; }
 
