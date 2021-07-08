@@ -2,6 +2,7 @@ package MineSweeper;
 
 import Graphics.BGSetter;
 import Module.Documents.Develop;
+import Module.StartNewGame.ChooseMode;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;
@@ -82,7 +83,7 @@ public class MineSweeper extends Application {
         Stage primaryStage = (Stage)startGame.getScene().getWindow();
         primaryStage.close();
         /* 开启新窗口GameMainPane */
-//        new ModSelectPlane();
+        new ChooseMode();
     }
 
     public void preButLoadGame(ActionEvent event) {
