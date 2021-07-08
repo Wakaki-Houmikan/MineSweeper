@@ -8,7 +8,7 @@ import java.io.Serializable;
  * <p>记录游戏数据。</p>
  *
  * @author 分柿方橙
- * @version ver 1.3 (2021.7.7)
+ * @version ver 1.4 (2021.7.7)
  * @since ver 1.1.0 (2021.7.5)
  */
 public class GameData implements Serializable {
@@ -21,10 +21,10 @@ public class GameData implements Serializable {
     private byte landAttri; // 游戏场景：1 平原  2 山区  3 恶地  4 随机
 
     private byte charaNum;    // 人数
-    private boolean charaRedChoosed; // 选择红队
-    private boolean charaBluChoosed; // 选择蓝队
-    private boolean charaGreChoosed; // 选择绿队
-    private boolean charaPurChoosed; // 选择紫队
+    private boolean charaRedChosen; // 选择红队
+    private boolean charaBluChosen; // 选择蓝队
+    private boolean charaGreChosen; // 选择绿队
+    private boolean charaPurChosen; // 选择紫队
 
     private boolean modCascade; // 单人·级联开采
 
@@ -39,7 +39,7 @@ public class GameData implements Serializable {
 
     private byte[][] mapMatrix; //地图矩阵
     private String[][] statusMatrix; //状态矩阵
-    
+
     private boolean loadSave; //是个存档
 
     /**
@@ -50,10 +50,10 @@ public class GameData implements Serializable {
      * @param timeAttri 昼夜设置：1 白天、2 黑夜、3、交替
      * @param landAttri 地形设置：1 平原、2 冰山、3 恶地
      * @param charaNum 已选择的角色数量
-     * @param charaRedChoosed 是否选择红队
-     * @param charaBluChoosed 是否选择蓝队
-     * @param charaGreChoosed 是否选择绿队
-     * @param charaPulChoosed 是否选择紫队
+     * @param charaRedChosen 是否选择红队
+     * @param charaBluChosen 是否选择蓝队
+     * @param charaGreChosen 是否选择绿队
+     * @param charaPulChosen 是否选择紫队
      * @param modCascade 单人模式：级联开采模组
      * @param modStepLimit 多人模式：每位角色每次行动的步数限制
      * @param modTimeLimit 多人模式：每位角色每次行动的时间限制
@@ -67,7 +67,7 @@ public class GameData implements Serializable {
      * @param loadSave 是否为读取存档（true：该数据从存档中读取得到；false：不是）
      */
     public GameData(int blockNumX, int blockNumY, int mineNum, byte timeAttri, byte landAttri, byte charaNum,
-                    boolean charaRedChoosed, boolean charaBluChoosed, boolean charaGreChoosed, boolean charaPulChoosed,
+                    boolean charaRedChosen, boolean charaBluChosen, boolean charaGreChosen, boolean charaPulChosen,
                     boolean modCascade, int modStepLimit, int modTimeLimit,
                     boolean modLife, boolean modCheat, boolean modCure,
                     int stepTotal, int timeTotal,
@@ -79,10 +79,10 @@ public class GameData implements Serializable {
         this.timeAttri = timeAttri;
         this.landAttri = landAttri;
         this.charaNum = charaNum;
-        this.charaRedChoosed = charaRedChoosed;
-        this.charaBluChoosed = charaBluChoosed;
-        this.charaGreChoosed = charaGreChoosed;
-        this.charaPurChoosed = charaPulChoosed;
+        this.charaRedChosen = charaRedChosen;
+        this.charaBluChosen = charaBluChosen;
+        this.charaGreChosen = charaGreChosen;
+        this.charaPurChosen = charaPulChosen;
         this.modCascade = modCascade;
         this.stepLim = modStepLimit;
         this.timeLim = modTimeLimit;
@@ -115,17 +115,17 @@ public class GameData implements Serializable {
     public byte getCharaNum() { return charaNum; }
     public void setCharaNum(byte charaNum) { this.charaNum = charaNum; }
 
-    public boolean isCharaRedChoosed() { return charaRedChoosed; }
-    public void setCharaRedChoosed(boolean charaRedChoosed) { this.charaRedChoosed = charaRedChoosed; }
+    public boolean isCharaRedChosen() { return charaRedChosen; }
+    public void setCharaRedChosen(boolean charaRedChosen) { this.charaRedChosen = charaRedChosen; }
 
-    public boolean isCharaBluChoosed() { return charaBluChoosed; }
-    public void setCharaBluChoosed(boolean charaBluChoosed) { this.charaBluChoosed = charaBluChoosed; }
+    public boolean isCharaBluChosen() { return charaBluChosen; }
+    public void setCharaBluChosen(boolean charaBluChosen) { this.charaBluChosen = charaBluChosen; }
 
-    public boolean isCharaGreChoosed() { return charaGreChoosed; }
-    public void setCharaGreChoosed(boolean charaGreChoosed) { this.charaGreChoosed = charaGreChoosed; }
+    public boolean isCharaGreChosen() { return charaGreChosen; }
+    public void setCharaGreChosen(boolean charaGreChosen) { this.charaGreChosen = charaGreChosen; }
 
-    public boolean isCharaPurChoosed() { return charaPurChoosed; }
-    public void setCharaPurChoosed(boolean charaPurChoosed) { this.charaPurChoosed = charaPurChoosed; }
+    public boolean isCharaPurChosen() { return charaPurChosen; }
+    public void setCharaPurChosen(boolean charaPurChosen) { this.charaPurChosen = charaPurChosen; }
 
     public boolean isModCascade() { return modCascade; }
     public void setModCascade(boolean modCascade) { this.modCascade = modCascade; }
