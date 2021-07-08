@@ -9,7 +9,7 @@ import java.io.Serializable;
  * value值会增加10，使用时需注意数据转换。</p>
  *
  * @author 分柿方橙
- * @version ver 0.1 (2021.7.5)
+ * @version ver 1.0 (2021.7.5)
  * @since ver 1.1.0 (2021.7.5)
  */
 public class TimeData implements Serializable {
