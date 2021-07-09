@@ -47,8 +47,9 @@ public class ChooseMode {
     boolean modCheat; // 多人·开启侦察
     boolean modCure; // 多人·开启治愈
 
-    /* GUI */
-    Font mainFont = new Font("Arial",16);
+    /* ---------------------------------------------以下是GUI---------------------------------------------------------- */
+
+    Font mainFont = new Font("Arial",16); //字体：等线16号
 
     TextField userX = new TextField();
     TextField userY = new TextField();
@@ -417,7 +418,7 @@ public class ChooseMode {
 
 
     /* 红 */
-    int countRed = 0; // 初始、点偶数次不能编辑，奇数次能编辑
+    int countRed = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
     private void processButtonCharaRed(ActionEvent actionEvent) {
         countRed++;
         if (countRed % 2 == 0){
@@ -433,7 +434,7 @@ public class ChooseMode {
                 "不得以数字开头。");
     }
     /* 蓝 */
-    int countBlu = 0; // 初始、点偶数次不能编辑，奇数次能编辑
+    int countBlu = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
     private void processButtonCharaBlu(ActionEvent actionEvent) {
         countBlu++;
         if (countBlu % 2 == 0){
@@ -449,7 +450,7 @@ public class ChooseMode {
                 "不得以数字开头。");
     }
     /* 绿 */
-    int countGre = 0; // 初始、点偶数次不能编辑，奇数次能编辑
+    int countGre = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
     private void processButtonCharaGre(ActionEvent actionEvent) {
         countGre++;
         if (countGre % 2 == 0){
@@ -465,7 +466,7 @@ public class ChooseMode {
                 "不得以数字开头。");
     }
     /* 紫 */
-    int countPur = 0; // 初始、点偶数次不能编辑，奇数次能编辑
+    int countPur = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
     private void processButtonCharaPur(ActionEvent actionEvent) {
         countPur++;
         if (countPur % 2 == 0){
@@ -482,10 +483,10 @@ public class ChooseMode {
     }
 
     /* 自动开采 */
-    int countAuto = 0; // 初始、点偶数次不能编辑，奇数次能编辑
+    int countCascade = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
     private void processButtonCascade(ActionEvent actionEvent) {
-        countAuto++;
-        modCascade = countAuto % 2 != 0;
+        countCascade++;
+        modCascade = countCascade % 2 != 0;
         modeName.setText("【自动开采】");
         modeIntro.setText("      若玩家打开的区块为安全区块（该区块及紧邻其的周围八格不含地雷），\n" +
                 "与其紧邻的8个区块将被自动打开，如此往复，直到没有新的区块能再被此\n" +
@@ -493,7 +494,7 @@ public class ChooseMode {
     }
 
     /* 回合步数 */
-    int countStep = 0; // 初始、点偶数次不能编辑，奇数次能编辑
+    int countStep = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
     private void processButtonMulStep(ActionEvent actionEvent) {
         countStep++;
         if (countStep % 2 == 0){
@@ -507,7 +508,7 @@ public class ChooseMode {
                 "记一区块为雷区、标记一区块可疑）次数。缺省值为5次。");
     }
     /* 回合时限 */
-    int countTime = 0; // 初始、点偶数次不能编辑，奇数次能编辑
+    int countTime = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
     private void processButtonMulTime(ActionEvent actionEvent) {
         countTime++;
         if (countTime % 2 == 0){
@@ -522,7 +523,7 @@ public class ChooseMode {
     }
 
     /* 开启生命 */
-    int countLife = 0; // 初始、点偶数次不能编辑，奇数次能编辑
+    int countLife = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
     private void processButtonLife(ActionEvent actionEvent) {
         countLife++;
         modLife = countLife % 2 != 0;

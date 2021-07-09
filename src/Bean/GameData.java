@@ -13,8 +13,8 @@ import java.io.Serializable;
  */
 public class GameData implements Serializable {
 
-    private int blockNumX; // 宽度
-    private int blockNumY; // 高度
+    private int blockNumX; // 宽度（列数）
+    private int blockNumY; // 高度（行数）
     private int mineNum; // 雷数
 
     private byte timeAttri; // 游戏时间：1 白昼  2 暗夜  3 昼夜  4 随机
