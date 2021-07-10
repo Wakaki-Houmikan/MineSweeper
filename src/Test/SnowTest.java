@@ -1,6 +1,6 @@
 package Test;
 
-import Module.Animation.Snow;
+import Module.Animation.Smog;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -12,18 +12,9 @@ public class SnowTest extends Application {
     @Override
     public void start(Stage primaryStage) {
         Group root = new Group();
-        Group snowSet = new Group();
-        new Snow(snowSet);
-        new Snow(snowSet);
-        new Snow(snowSet);
-        new Snow(snowSet);
-        new Snow(snowSet);
-        new Snow(snowSet);
-        new Snow(snowSet);
-        new Snow(snowSet);
-        new Snow(snowSet);
-        new Snow(snowSet);
-        root.getChildren().addAll(snowSet);
+        Group smogSet = new Group();
+        new Smog(smogSet);
+        root.getChildren().addAll(smogSet);
 
         Scene scene = new Scene(root, 1900,960, Color.BLACK);
 
