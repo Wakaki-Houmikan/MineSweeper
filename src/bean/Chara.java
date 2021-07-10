@@ -33,6 +33,13 @@ public class Chara implements Serializable {
     private boolean win;     // 有没有赢
 
     /**
+     * 无参构造器：空壳
+     */
+    public Chara(){
+
+    }
+
+    /**
      * 一般构造器：记录角色的属性值。
      * @param choosed 是否选中（这里应为true）
      * @param color 颜色（红、蓝、绿、紫）

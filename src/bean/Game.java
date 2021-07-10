@@ -43,6 +43,13 @@ public class Game implements Serializable {
     private boolean loadSave; //是个存档
 
     /**
+     * 无参构造器：空壳
+     */
+    public Game(){
+
+    }
+
+    /**
      * 构造器：创建一部新游戏
      * @param blockNumX 横向区块数
      * @param blockNumY 竖向区块数
