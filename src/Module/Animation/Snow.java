@@ -14,11 +14,11 @@ import java.util.Random;
 /**
  * <strong><big>下雪动画  Snow Animation</big></strong>
  *
- * <p>该动画借助TranslateTransition（位移动画）类，控制至多1200个“雪粒”以随机的速率、起止点循环运动，以实现下雪效果。</p>
+ * <p>该动画借助TranslateTransition（位移动画）类，控制1200个“雪粒”以随机的速率从起始点往终止点单向运动，以实现下雪效果。</p>
  *
  * <p>雪粒：边长为6以内随机数的正方形，颜色在白色——浅灰蓝之间扰动。</p>
  *
- * <p>单个雪粒的运动：反复地以均匀速度从起始点直线运动到终止点。<br />
+ * <p>单个雪粒的运动：反复地以均匀速度从起始点直线运动到终止点。<br>
  * <ul>
  * <li>起始点：X坐标为-500~2400像素间的随机值，Y坐标为-20像素；</li>
  * <li>终止点：X坐标为起始点X坐标左右1000像素内的随机值，Y坐标为1180；</li>
@@ -28,7 +28,7 @@ import java.util.Random;
  * </p>
  *
  * <p>雪粒群：从动画开始运行的一瞬间起，在接下来的30秒内，每0.1秒新增4个雪粒，并令其进行上述运动，最多有1200个雪粒同时运动。由
- * 于雪花运动起止点在窗口范围外，窗口显示的雪粒个数小于该数。宏观上，降雪速率最终稳定在40雪粒/秒（含窗口的不可视区域）。</p>
+ * 于雪花运动起止点在窗口范围外，窗口显示的雪粒个数小于该数。宏观上，降雪速率稳定在40雪粒/秒（含窗口的不可视区域）。</p>
  *
  * <p>作者制作本动画时，参考了<a href="https://github.com/ajithkp560/SnowFallingAnimationJavaFX">ajithkp560的作品</a>，
  * 并对其进行了大幅魔改和优化。代表性改动如下：
@@ -43,52 +43,36 @@ import java.util.Random;
  * @author 分柿方橙
  * @version ver 1.1 (2021.7.10)
  * @since ver 1.1.3 (2021.7.9)
- *
- * <i>更新日志·摘要
- *
- * <p>ver 1.1  2021.7.10<br />
- * 1. [增]增加雪粒颜色扰动<br />
- * 2. [改]调整参数细节
- * </p>
- *
- * <p>ver 1.0  2021.7.9<br />
- * 1. [增]引入本类<br />
- * 2. [改]替换被建议废弃的TTB方法为TT方法（见上）<br />
- * 3. [改]设置动画播放前30秒内，每隔0.1秒添加4颗雪粒<br />
- * 4. [改]调整参数细节
- * </p>
- * </i>
  */
 public class Snow {
 
     /**
      * <p>含参建造器：添加下雪动画</p>
      *
-     * <p>基本用法：
+     * <p>基本用法：<br>
      * <code>
-     *     Group snowSet = new Group();
-     *     new Snow(snowSet);
+     *     Group snowSet = new Group();<br>
+     *     new Snow(snowSet);<br>
      *     // 记得把snowSet添加进Group root。
-     * </code></p>
+     * </code>
+     * </p>
      *
-     * <p>魔性用法：
-     * <li>可以直接向Group root里添加本动画：
+     * <p>魔性用法：<br>
+     * 1. 可以直接向Group root里添加本动画：<br>
      * <code>
-     *     new Snow(root)
+     *     new Snow(root)<br>
      * </code>
-     * </li>
-     * <li>可以对一个Group多次添加动画，以获得多倍的雪：
+     * 2. 可以对一个Group多次添加动画，以获得多倍的雪：<br>
      * <code>
-     *     Group snowSet = new Group();
-     *     new Snow(snowSet);
-     *     new Snow(snowSet);
-     *     new Snow(snowSet);
-     *     new Snow(snowSet);
-     *     new Snow(snowSet);
-     *     ......
+     *     Group snowSet = new Group();<br>
+     *     new Snow(snowSet);<br>
+     *     new Snow(snowSet);<br>
+     *     new Snow(snowSet);<br>
+     *     new Snow(snowSet);<br>
+     *     new Snow(snowSet);<br>
+     *     ......<br>
      *     // 记得把snowSet添加进Group root。
      * </code>
-     * </li>
      * </p>
      *
      * @param snowSet “雪的集合”群组
