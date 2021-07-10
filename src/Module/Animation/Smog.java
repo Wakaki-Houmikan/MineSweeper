@@ -23,6 +23,38 @@ import java.util.Random;
  * @since ver 1.1.4 (2021.7.10)
  */
 public class Smog {
+
+    /**
+     * <p>含参建造器：添加烟雾动画</p>
+     *
+     * <p>基本用法：<br>
+     * <code>
+     *     Group smogSet = new Group();<br>
+     *     new Smog(smogSet);<br>
+     *     // 记得把smogSet添加进Group root。
+     * </code>
+     * </p>
+     *
+     * <p>魔性用法：<br>
+     * 1. 可以直接向Group root里添加本动画：<br>
+     * <code>
+     *     new Smog(root)<br>
+     * </code>
+     * 2. 可以对一个Group多次添加动画，以获得多倍的烟：<br>
+     * <code>
+     *     Group smogSet = new Group();<br>
+     *     new Smog(smogSet);<br>
+     *     new Smog(smogSet);<br>
+     *     new Smog(smogSet);<br>
+     *     new Smog(smogSet);<br>
+     *     new Smog(smogSet);<br>
+     *     ......<br>
+     *     // 记得把smogSet添加进Group root。
+     * </code>
+     * </p>
+     *
+     * @param smogSet “雪的集合”群组
+     */
     public Smog(Group smogSet){
         /* 创建一个时间数据类，用于记录时间 */
         TimeData timeSmog = new TimeData(0);
@@ -48,7 +80,7 @@ public class Smog {
     }
 
     /**
-     * 为每点烟雾设置落雪动画
+     * 为每点烟雾设置动画
      *
      * @param smog 单点烟雾
      */
@@ -63,11 +95,10 @@ public class Smog {
         int xFinal = new Random().nextInt(2000) - 1000 + xInitial;
         int yFinal = (int) (950 - Math.pow(new Random().nextDouble(),4) * 960);
 
-
         smogAnimation.setFromX(xInitial); // 起始位置X坐标：-500~2400内随机值
         smogAnimation.setToX(xFinal); // 终止位置X坐标：起始位置X坐标左右1000内随机值
         smogAnimation.setFromY(1180); //起始位置Y坐标：1180
-        smogAnimation.setToY(yFinal); //终止位置Y坐标：二次性随机值
+        smogAnimation.setToY(yFinal); //终止位置Y坐标：随机值
         smogAnimation.setOnFinished(t -> SmogAnimation(smog));
         smogAnimation.play();
     }
