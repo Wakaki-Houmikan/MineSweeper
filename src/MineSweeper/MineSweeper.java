@@ -1,8 +1,9 @@
 package MineSweeper;
 
 import Graphics.BGSetter;
+import Module.Animation.Snow;
 import Module.Documents.Develop;
-import Module.StartNewGame.ChooseMode;
+import Module.ChooseMode.ChooseMode;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;

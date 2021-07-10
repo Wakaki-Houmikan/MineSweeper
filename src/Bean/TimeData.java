@@ -33,7 +33,7 @@ public class TimeData implements Serializable {
     /**
      * 增加：每调用一次该方法，时间值增加1。
      */
-    public void add() { value++; }
+    public void run() { value++; }
 
     /**
      * 清零：将时间值强制更改为初始值0。
