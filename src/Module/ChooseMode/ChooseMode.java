@@ -1,4 +1,4 @@
-package Module.StartNewGame;
+package Module.ChooseMode;
 
 import Bean.*;
 import MineSweeper.MineSweeper;
@@ -559,20 +559,20 @@ public class ChooseMode {
      * @param actionEvent 点击确定
      */
     private void processButYe(ActionEvent actionEvent) {
-        /* 用于创建新游戏的数据 */
-        int f_x; int f_y; int f_m; byte f_time; byte f_land; byte f_charaNum = 0;
-        boolean f_charaRed = false; boolean f_charaBlu = false; boolean f_charaGre = false; boolean f_charaPur = false;
-        String f_nameRed = null; String f_nameBlu = null; String f_nameGre = null; String f_namePur = null;
-        boolean f_modCascade = false; int f_stepLim = 0; int f_timeLim = 0;
-        boolean f_modLife = false; boolean f_modCheat = false; boolean f_modCure = false;
+        /* 用于创建新游戏的数据：ng = newGame */
+        int ng_x; int ng_y; int ng_m; byte ng_time; byte ng_land; byte ng_charaNum = 0;
+        boolean ng_charaRed = false; boolean ng_charaBlu = false; boolean ng_charaGre = false; boolean ng_charaPur = false;
+        String ng_nameRed = null; String ng_nameBlu = null; String ng_nameGre = null; String ng_namePur = null;
+        boolean ng_modCascade = false; int ng_stepLim = 0; int ng_timeLim = 0;
+        boolean ng_modLife = false; boolean ng_modCheat = false; boolean ng_modCure = false;
 
         /* 处理：三大属性 */
         if (level == 1){ // 初级
-            f_y = 9; f_x = 9; f_m = 10;
+            ng_y = 9; ng_x = 9; ng_m = 10;
         } else if (level == 2){ // 中级
-            f_y = 16; f_x = 16; f_m = 40;
+            ng_y = 16; ng_x = 16; ng_m = 40;
         } else if (level == 3){ // 高级
-            f_y = 16; f_x = 30; f_m = 99;
+            ng_y = 16; ng_x = 30; ng_m = 99;
         } else if (level == 4){ // 自定义
             blockNumX = userX.getText();
             blockNumY = userY.getText();
@@ -583,52 +583,52 @@ public class ChooseMode {
             else if (blockNumY.length() > 5){ blockNumY = blockNumY.substring(0, 3); }
             if (mineNum.equals("")){ mineNum = "40"; }
             else if (mineNum.length() > 5){ mineNum = mineNum.substring(0, 3); }
-            f_y = Integer.parseInt(blockNumX);
-            f_x = Integer.parseInt(blockNumY);
-            f_m = Integer.parseInt(mineNum); // String转int
-            if (f_y < 9 ){ f_y = 9; } else if (f_y > 24){ f_y = 24; }
-            if (f_x < 9 ){ f_x = 9; } else if (f_x > 30){ f_y = 30; }
-            if (f_m < 10 ){ f_m = 10; } else if (f_m > f_y * f_x / 2){ f_m = f_y * f_x / 2; } // 限制取值
+            ng_y = Integer.parseInt(blockNumX);
+            ng_x = Integer.parseInt(blockNumY);
+            ng_m = Integer.parseInt(mineNum); // String转int
+            if (ng_y < 9 ){ ng_y = 9; } else if (ng_y > 24){ ng_y = 24; }
+            if (ng_x < 9 ){ ng_x = 9; } else if (ng_x > 30){ ng_y = 30; }
+            if (ng_m < 10 ){ ng_m = 10; } else if (ng_m > ng_y * ng_x / 2){ ng_m = ng_y * ng_x / 2; } // 限制取值
         } else {
-            f_y = Integer.parseInt(blockNumX);
-            f_x = Integer.parseInt(blockNumY);
-            f_m = Integer.parseInt(mineNum);
+            ng_y = Integer.parseInt(blockNumX);
+            ng_x = Integer.parseInt(blockNumY);
+            ng_m = Integer.parseInt(mineNum);
         }
 
         /* 处理：时间和场景 */
-        if (timeAttri == 4){ f_time = (byte) (new Random().nextInt(3) + 1); }
-        else { f_time = timeAttri; }
-        if (landAttri == 4){ f_land = (byte) (new Random().nextInt(3) + 1); }
-        else { f_land = landAttri; }
+        if (timeAttri == 4){ ng_time = (byte) (new Random().nextInt(3) + 1); }
+        else { ng_time = timeAttri; }
+        if (landAttri == 4){ ng_land = (byte) (new Random().nextInt(3) + 1); }
+        else { ng_land = landAttri; }
 
         /* 判断人数 */
         byte charaNum = 0;
         if ( charaRedChosen ){
-            charaNum++; f_charaRed = true; f_nameRed = chaRedName.getText();
-            if (f_nameRed.equals("")){ f_nameRed = "红队工兵"; }
+            charaNum++; ng_charaRed = true; ng_nameRed = chaRedName.getText();
+            if (ng_nameRed.equals("")){ ng_nameRed = "红队工兵"; }
         }
         if ( charaBluChosen ){
-            charaNum++; f_charaBlu = true; f_nameBlu = chaBluName.getText();
-            if (f_nameBlu.equals("")){ f_nameBlu = "蓝队工兵"; }
+            charaNum++; ng_charaBlu = true; ng_nameBlu = chaBluName.getText();
+            if (ng_nameBlu.equals("")){ ng_nameBlu = "蓝队工兵"; }
         }
         if ( charaGreChosen ){
-            charaNum++; f_charaGre = true; f_nameGre = chaGreName.getText();
-            if (f_nameGre.equals("")){ f_nameGre = "绿队工兵"; }
+            charaNum++; ng_charaGre = true; ng_nameGre = chaGreName.getText();
+            if (ng_nameGre.equals("")){ ng_nameGre = "绿队工兵"; }
         }
         if ( charaPurChosen ){
-            charaNum++; f_charaPur = true; f_namePur = chaGreName.getText();
-            if (f_namePur.equals("")){ f_namePur = "紫队工兵"; }
+            charaNum++; ng_charaPur = true; ng_namePur = chaGreName.getText();
+            if (ng_namePur.equals("")){ ng_namePur = "紫队工兵"; }
         } // 队员选择
 
         /* 单人模式 */
         if (charaNum == 0 || charaNum == 1){
-            f_modCascade = modCascade;
+            ng_modCascade = modCascade;
             if (charaNum == 0){
-                f_charaNum = 1; f_charaBlu = true; charaBluChosen = true; f_nameBlu = "蓝队工兵";
+                ng_charaNum = 1; ng_charaBlu = true; charaBluChosen = true; ng_nameBlu = "蓝队工兵";
             } //如果没有选择任何玩家，则默认用户选择了蓝队
         }
         /* 多人模式 */
-        else { f_charaNum = charaNum;
+        else { ng_charaNum = charaNum;
             /* 步数和时间限制 */
             stepLim = mulStep.getText();
             timeLim = mulTime.getText();
@@ -636,15 +636,15 @@ public class ChooseMode {
             else if (stepLim.length() > 5){ stepLim = stepLim.substring(0, 3); }
             if (timeLim.equals("")){ timeLim = "20"; }
             else if (timeLim.length() > 5){ timeLim = timeLim.substring(0, 3); }
-            f_stepLim = Integer.parseInt(stepLim);
-            f_timeLim = Integer.parseInt(timeLim);
-            if (f_stepLim < 1){ f_stepLim = 1; } else if (f_stepLim > 5){ f_stepLim = 5; }
-            if (f_timeLim < 10){ f_timeLim = 10; } else if (f_timeLim > 60){ f_timeLim = 60; }
+            ng_stepLim = Integer.parseInt(stepLim);
+            ng_timeLim = Integer.parseInt(timeLim);
+            if (ng_stepLim < 1){ ng_stepLim = 1; } else if (ng_stepLim > 5){ ng_stepLim = 5; }
+            if (ng_timeLim < 10){ ng_timeLim = 10; } else if (ng_timeLim > 60){ ng_timeLim = 60; }
             /* 生命设置 */
             if (modLife) {
-                f_modLife = true; f_modCheat = modCheat; f_modCure = modCure;
+                ng_modLife = true; ng_modCheat = modCheat; ng_modCure = modCure;
             } else {
-                f_modLife = false; f_modCheat = false; f_modCure = false;
+                ng_modLife = false; ng_modCheat = false; ng_modCure = false;
             } // 必须选择开生命值才能选开作弊和治愈
         }
 
@@ -653,34 +653,34 @@ public class ChooseMode {
         primaryStage.close();
 
         /* 创建一个Game */
-        GameData game0 = new GameData(f_x, f_y, f_m, f_time, f_land, f_charaNum,
-                f_charaRed, f_charaBlu, f_charaGre, f_charaPur,
-                f_modCascade, f_stepLim, f_timeLim,
-                f_modLife, f_modCheat, f_modCure,
+        GameData game = new GameData(ng_x, ng_y, ng_m, ng_time, ng_land, ng_charaNum,
+                ng_charaRed, ng_charaBlu, ng_charaGre, ng_charaPur,
+                ng_modCascade, ng_stepLim, ng_timeLim,
+                ng_modLife, ng_modCheat, ng_modCure,
                 0, 0,
-                new byte[f_x][f_y], new String[f_x][f_y],
+                new byte[ng_x][ng_y], new String[ng_x][ng_y],
                 false);
 
         /* 创建四个角色 */
         CharaData charaRed; CharaData charaBlu; CharaData charaGre; CharaData charaPur;
         if (charaRedChosen) {
-            charaRed = new CharaData(true, "red", f_nameRed, 0, 0,
-                    f_timeLim, f_stepLim, 5, f_timeLim, f_stepLim, 5,
+            charaRed = new CharaData(true, "red", ng_nameRed, 0, 0,
+                    ng_timeLim, ng_stepLim, 5, ng_timeLim, ng_stepLim, 5,
                     false, false, false,false); }
         else { charaRed = new CharaData(false); }
         if (charaBluChosen) {
-            charaBlu = new CharaData(true, "blu", f_nameBlu, 0, 0,
-                    f_timeLim, f_stepLim, 5, f_timeLim, f_stepLim, 5,
+            charaBlu = new CharaData(true, "blu", ng_nameBlu, 0, 0,
+                    ng_timeLim, ng_stepLim, 5, ng_timeLim, ng_stepLim, 5,
                     false, false, false,false); }
         else { charaBlu = new CharaData(false); }
         if (charaGreChosen) {
-            charaGre = new CharaData(true, "gre", f_nameGre, 0, 0,
-                    f_timeLim, f_stepLim, 5, f_timeLim, f_stepLim, 5,
+            charaGre = new CharaData(true, "gre", ng_nameGre, 0, 0,
+                    ng_timeLim, ng_stepLim, 5, ng_timeLim, ng_stepLim, 5,
                     false, false, false,false); }
         else { charaGre = new CharaData(false); }
         if (charaPurChosen) {
-            charaPur = new CharaData(true, "pur", f_namePur, 0, 0,
-                    f_timeLim, f_stepLim, 5, f_timeLim, f_stepLim, 5,
+            charaPur = new CharaData(true, "pur", ng_namePur, 0, 0,
+                    ng_timeLim, ng_stepLim, 5, ng_timeLim, ng_stepLim, 5,
                     false, false, false,false); }
         else { charaPur = new CharaData(false); }//如果角色被选择，用前一种；没被选择，后一种
 
