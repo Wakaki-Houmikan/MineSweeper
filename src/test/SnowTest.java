@@ -1,6 +1,6 @@
-package Test;
+package test;
 
-import Module.Animation.Smog;
+import module.animation.Smog;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;

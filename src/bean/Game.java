@@ -1,4 +1,4 @@
-package Bean;
+package bean;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @version ver 1.4 (2021.7.7)
  * @since ver 1.1.0 (2021.7.5)
  */
-public class GameData implements Serializable {
+public class Game implements Serializable {
 
     private int blockNumX; // 宽度（列数）
     private int blockNumY; // 高度（行数）
@@ -66,13 +66,13 @@ public class GameData implements Serializable {
      * @param statusMatrix 状态矩阵：null 无状态；flagged 插旗；opened 开启
      * @param loadSave 是否为读取存档（true：该数据从存档中读取得到；false：不是）
      */
-    public GameData(int blockNumX, int blockNumY, int mineNum, byte timeAttri, byte landAttri, byte charaNum,
-                    boolean charaRedChosen, boolean charaBluChosen, boolean charaGreChosen, boolean charaPulChosen,
-                    boolean modCascade, int modStepLimit, int modTimeLimit,
-                    boolean modLife, boolean modCheat, boolean modCure,
-                    int stepTotal, int timeTotal,
-                    byte[][] mapMatrix, String[][] statusMatrix,
-                    boolean loadSave) {
+    public Game(int blockNumX, int blockNumY, int mineNum, byte timeAttri, byte landAttri, byte charaNum,
+                boolean charaRedChosen, boolean charaBluChosen, boolean charaGreChosen, boolean charaPulChosen,
+                boolean modCascade, int modStepLimit, int modTimeLimit,
+                boolean modLife, boolean modCheat, boolean modCure,
+                int stepTotal, int timeTotal,
+                byte[][] mapMatrix, String[][] statusMatrix,
+                boolean loadSave) {
         this.blockNumX = blockNumX;
         this.blockNumY = blockNumY;
         this.mineNum = mineNum;

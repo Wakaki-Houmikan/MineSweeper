@@ -1,4 +1,4 @@
-package Bean;
+package bean;
 
 import java.io.Serializable;
 
@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @version ver 1.0 (2021.7.5)
  * @since ver 1.1.0 (2021.7.5)
  */
-public class TimeData implements Serializable {
+public class Timer implements Serializable {
     /**
      * 时间值
      */
@@ -21,14 +21,14 @@ public class TimeData implements Serializable {
     /**
      * 不含参建造器：创建一个当前时间值为0的计时器。
      */
-    public TimeData(){ value = 0; }
+    public Timer(){ value = 0; }
 
     /**
      * 含参建造器：创建一个当前时间值为给定数值的计时器。
      *
      * @param value 给定时间值
      */
-    public TimeData(int value){ this.value = value; }
+    public Timer(int value){ this.value = value; }
 
     /**
      * 增加：每调用一次该方法，时间值增加1。

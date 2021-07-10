@@ -1,6 +1,6 @@
-package Module.Documents;
+package module.documents;
 
-import Graphics.BGSetter;
+import graphics.BGSetter;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;
 import javafx.scene.Scene;

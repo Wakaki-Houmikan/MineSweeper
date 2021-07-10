@@ -1,6 +1,6 @@
-package Module.Animation;
+package module.animation;
 
-import Bean.TimeData;
+import bean.Timer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
@@ -57,7 +57,7 @@ public class Smog {
      */
     public Smog(Group smogSet){
         /* 创建一个时间数据类，用于记录时间 */
-        TimeData timeSmog = new TimeData(0);
+        Timer timeSmog = new Timer(0);
 
         /* 创建时间线动画：每1000毫秒（0.1秒）执行一次，并发生以下事件 */
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(100), e ->{

@@ -1,6 +1,6 @@
-package Module.ChooseMode;
+package module.chooseMode;
 
-import Bean.*;
+import bean.*;
 import MineSweeper.MineSweeper;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;
@@ -653,7 +653,7 @@ public class ChooseMode {
         primaryStage.close();
 
         /* 创建一个Game */
-        GameData game = new GameData(ng_x, ng_y, ng_m, ng_time, ng_land, ng_charaNum,
+        Game game = new Game(ng_x, ng_y, ng_m, ng_time, ng_land, ng_charaNum,
                 ng_charaRed, ng_charaBlu, ng_charaGre, ng_charaPur,
                 ng_modCascade, ng_stepLim, ng_timeLim,
                 ng_modLife, ng_modCheat, ng_modCure,
@@ -662,27 +662,27 @@ public class ChooseMode {
                 false);
 
         /* 创建四个角色 */
-        CharaData charaRed; CharaData charaBlu; CharaData charaGre; CharaData charaPur;
+        Chara charaRed; Chara charaBlu; Chara charaGre; Chara charaPur;
         if (charaRedChosen) {
-            charaRed = new CharaData(true, "red", ng_nameRed, 0, 0,
+            charaRed = new Chara(true, "red", ng_nameRed, 0, 0,
                     ng_timeLim, ng_stepLim, 5, ng_timeLim, ng_stepLim, 5,
                     false, false, false,false); }
-        else { charaRed = new CharaData(false); }
+        else { charaRed = new Chara(false); }
         if (charaBluChosen) {
-            charaBlu = new CharaData(true, "blu", ng_nameBlu, 0, 0,
+            charaBlu = new Chara(true, "blu", ng_nameBlu, 0, 0,
                     ng_timeLim, ng_stepLim, 5, ng_timeLim, ng_stepLim, 5,
                     false, false, false,false); }
-        else { charaBlu = new CharaData(false); }
+        else { charaBlu = new Chara(false); }
         if (charaGreChosen) {
-            charaGre = new CharaData(true, "gre", ng_nameGre, 0, 0,
+            charaGre = new Chara(true, "gre", ng_nameGre, 0, 0,
                     ng_timeLim, ng_stepLim, 5, ng_timeLim, ng_stepLim, 5,
                     false, false, false,false); }
-        else { charaGre = new CharaData(false); }
+        else { charaGre = new Chara(false); }
         if (charaPurChosen) {
-            charaPur = new CharaData(true, "pur", ng_namePur, 0, 0,
+            charaPur = new Chara(true, "pur", ng_namePur, 0, 0,
                     ng_timeLim, ng_stepLim, 5, ng_timeLim, ng_stepLim, 5,
                     false, false, false,false); }
-        else { charaPur = new CharaData(false); }//如果角色被选择，用前一种；没被选择，后一种
+        else { charaPur = new Chara(false); }//如果角色被选择，用前一种；没被选择，后一种
 
         /* 开启新窗口GameMainPane */
 //        new GameMainPlane(game0, charaRed, charaBlu, charaGre, charaPur, new TimeData(), new TimeData());

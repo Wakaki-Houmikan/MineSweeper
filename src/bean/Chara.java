@@ -1,4 +1,4 @@
-package Bean;
+package bean;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @version ver 1.2 (2021.7.7)
  * @since ver 1.1.0 (2021.7.5)
  */
-public class CharaData implements Serializable {
+public class Chara implements Serializable {
 
     private boolean choosed; // 选中
     private String color; // 颜色
@@ -50,10 +50,10 @@ public class CharaData implements Serializable {
      * @param dead 是否处于死亡状态
      * @param win 是否被判定为胜利
      */
-    public CharaData(boolean choosed, String color, String name, int score, int miss,
-                     int timeLim, int stepLim, int lifeLim,
-                     int timeLeft, int stepLeft, int lifeLeft,
-                     boolean onRound, boolean robot, boolean dead, boolean win) {
+    public Chara(boolean choosed, String color, String name, int score, int miss,
+                 int timeLim, int stepLim, int lifeLim,
+                 int timeLeft, int stepLeft, int lifeLeft,
+                 boolean onRound, boolean robot, boolean dead, boolean win) {
         this.choosed = choosed;
         this.color = color;
         this.name = name;
@@ -74,7 +74,7 @@ public class CharaData implements Serializable {
     /**
      * 简单构造器：只将choosed（“是否选中”）属性记录为false。
      */
-    public CharaData(boolean choosed) {
+    public Chara(boolean choosed) {
         this.choosed = choosed;
     }
 
