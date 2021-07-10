@@ -11,13 +11,13 @@ import java.io.File;
  * <p>可读取 src/Musics/BGM 里的音乐，进行音乐播放相关操作。</p>
  *
  * @author 分柿方橙
- * @version ver 1.1 (2021.7.5)
+ * @version ver 1.2 (2021.7.5)
  * @since ver 1.1.0 (2021.7.5)
  */
 public class BGMPlayer {
 
     /**
-     * File[]类型音乐列表：
+     * MediaPlayer[]类型音乐播放列表：
      * <p>   0   占位未使用 </p>
      * <p>   1   平原 白天   巨树的记忆 </p>
      * <p>   2   平原 夜晚   在一颗星的旁边 </p>
@@ -29,50 +29,27 @@ public class BGMPlayer {
      * <p>   8   恶地 夜晚   心惊胆战洞穴探险 </p>
      * <p>   9   恶地 最终   绯红色的征兆 </p>
      */
-    public static final File[] MUSIC_LIST = { null,                                         // 0, 占位
-            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
-                    "src/Musics/Memories of the Great Tree.mp3"))),                   // 1
-            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
-                    "src/Musics/One Star by the Next.mp3"))),                         // 2
-            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
-                    "src/Musics/Pitch Black.mp3"))),                                  // 3
-            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
-                    "src/Musics/Song of the Hoarfrost.mp3"))),                        // 4
-            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
-                    "src/Musics/Flowers Blooming in the Empty Sky.mp3"))),            // 5
-            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
-                    "src/Musics/Verethraghna.mp3"))),                                 // 6
-            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
-                    "src/Musics/Blazing Earth.mp3"))),                                // 7
-            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
-                    "src/Musics/Exciting Cave Exploration.mp3"))),                    // 8
-            new File(String.valueOf(BGMPlayer.class.getResourceAsStream(
-                    "src/Musics/Crimson Omen.mp3")))};                                // 9
-
-    /**
-     * MediaPlayer[]类型音乐播放列表，音乐顺序同上。
-     */
     public static final MediaPlayer[] MEDIA_PLAYER = { null,
-            new MediaPlayer(new Media(MUSIC_LIST[1].toURI().toString())),
-            new MediaPlayer(new Media(MUSIC_LIST[2].toURI().toString())),
-            new MediaPlayer(new Media(MUSIC_LIST[3].toURI().toString())),
-            new MediaPlayer(new Media(MUSIC_LIST[4].toURI().toString())),
-            new MediaPlayer(new Media(MUSIC_LIST[5].toURI().toString())),
-            new MediaPlayer(new Media(MUSIC_LIST[6].toURI().toString())),
-            new MediaPlayer(new Media(MUSIC_LIST[7].toURI().toString())),
-            new MediaPlayer(new Media(MUSIC_LIST[8].toURI().toString())),
-            new MediaPlayer(new Media(MUSIC_LIST[9].toURI().toString())),
+            new MediaPlayer(new Media(new File("src/musics/BGM/Memories of the Great Tree.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/musics/BGM/One Star by the Next.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/musics/BGM/Pitch Black.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/musics/BGM/Song of the Hoarfrost.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/musics/BGM/Flowers Blooming in the Empty Sky.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/musics/BGM/Verethraghna.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/musics/BGM/Blazing Earth.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/musics/BGM/Exciting Cave Exploration.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/musics/BGM/Crimson Omen.mp3").toURI().toString()))
     };
 
     /**
      *  最近一次播放的音乐的序号，音乐顺序同上。
      */
-    public byte recentMusicIndex;
+    public static byte recentMusicIndex;
 
     /**
      * 暂停音乐：暂停正在播放的所有音乐。
      */
-    public void musicOff(){
+    public static void musicOff(){
         for (byte i = 1; i <= 9; i++){
             MEDIA_PLAYER[i].pause();
         }
@@ -84,7 +61,7 @@ public class BGMPlayer {
      * @param order 设置音乐序号
      * @param volume 设置音量
      */
-    public void musicCut(byte order, double volume){
+    public static void musicCut(byte order, double volume){
         musicOff();
         recentMusicIndex = order;
         MEDIA_PLAYER[order].play();
@@ -97,7 +74,7 @@ public class BGMPlayer {
      *
      * @param volume 设置音量
      */
-    public void musicVolume(double volume){
+    public static void musicVolume(double volume){
         for (byte i = 1; i <= 9; i++){
             MEDIA_PLAYER[i].setVolume(volume);
         }
