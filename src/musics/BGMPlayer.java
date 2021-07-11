@@ -11,7 +11,7 @@ import java.io.File;
  * <p>可读取 src/Musics/BGM 里的音乐，进行音乐播放相关操作。</p>
  *
  * @author 分柿方橙
- * @version ver 1.2 (2021.7.5)
+ * @version ver 1.3 (2021.7.11)
  * @since ver 1.1.0 (2021.7.5)
  */
 public class BGMPlayer {
@@ -29,7 +29,7 @@ public class BGMPlayer {
      * <p>   8   恶地 夜晚   心惊胆战洞穴探险 </p>
      * <p>   9   恶地 最终   绯红色的征兆 </p>
      */
-    public static final MediaPlayer[] MEDIA_PLAYER = { null,
+    static final MediaPlayer[] MEDIA_PLAYER = { null,
             new MediaPlayer(new Media(new File("src/musics/BGM/Memories of the Great Tree.mp3").toURI().toString())),
             new MediaPlayer(new Media(new File("src/musics/BGM/One Star by the Next.mp3").toURI().toString())),
             new MediaPlayer(new Media(new File("src/musics/BGM/Pitch Black.mp3").toURI().toString())),
@@ -44,37 +44,37 @@ public class BGMPlayer {
     /**
      *  最近一次播放的音乐的序号，音乐顺序同上。
      */
-    public static byte recentMusicIndex;
-
-    /**
-     * 暂停音乐：暂停正在播放的所有音乐。
-     */
-    public static void musicOff(){
-        for (byte i = 1; i <= 9; i++){
-            MEDIA_PLAYER[i].pause();
-        }
-    }
+    public static int recentMusicIndex;
 
     /**
      * 切换音乐：以当前音量无限循环播放指定音乐，并暂停其他所有音乐。
      *
      * @param order 设置音乐序号
-     * @param volume 设置音量
      */
-    public static void musicCut(byte order, double volume){
-        musicOff();
+    public static void musicStart(int order){
+        musicStop();
         recentMusicIndex = order;
         MEDIA_PLAYER[order].play();
         MEDIA_PLAYER[order].setCycleCount(999);
-        MEDIA_PLAYER[order].setVolume(volume);
     }
 
     /**
-     * 调节音量：将音量设置为给定百分值。
+     * 暂停音乐：暂停正在播放的所有音乐。
+     */
+    public static void musicStop(){
+        for (byte i = 1; i <= 9; i++){
+            MEDIA_PLAYER[i].pause();
+        }
+    }
+
+
+
+    /**
+     * 调节音量：将音量设置为给定值。
      *
      * @param volume 设置音量
      */
-    public static void musicVolume(double volume){
+    public static void setVolume(double volume){
         for (byte i = 1; i <= 9; i++){
             MEDIA_PLAYER[i].setVolume(volume);
         }
