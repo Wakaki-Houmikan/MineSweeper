@@ -44,7 +44,7 @@ import java.util.Random;
  * @version ver 1.1 (2021.7.10)
  * @since ver 1.1.3 (2021.7.9)
  */
-public class Snow {
+public class Snow extends Climate{
 
     /**
      * <p>含参建造器：添加下雪动画</p>
@@ -78,22 +78,24 @@ public class Snow {
      * @param snowSet “雪的集合”群组
      */
     public Snow(Group snowSet){
-        /* 创建一个时间数据类，用于记录时间 */
-        Timer timeSnow = new Timer(0);
 
         /* 创建时间线动画：每1000毫秒（0.1秒）执行一次，并发生以下事件 */
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(100), e ->{
-            timeSnow.run(); // 时间值+1
-            if (timeSnow.getValue() < 300){
+            timer.run(); // 时间值+1
+
+            if (timer.getValue() < 300){
                 for (int i = 0; i < 4; i++) {
-                    Rectangle[] snow = new Rectangle[4]; //创建一个长方形数组
                     double sideLength = (new Random()).nextDouble() * 6; //边长：6以内随机值
-                    snow[i] = new Rectangle(-100, -100, sideLength, sideLength); //先创建在(-100,-100位置)
-                    snow[i].setFill(Color.hsb(200,
+                    particle[timer.getValue() * 4 + i] = new Rectangle(-100, -100, sideLength, sideLength); //先创建在(-100,-100位置)
+                    particle[timer.getValue() * 4 + i].setFill(Color.hsb(200,
                             new Random().nextDouble() / 15,
                             1 - new Random().nextDouble() / 15)); //颜色：随机的浅灰蓝
-                    snowSet.getChildren().add(snow[i]);
-                    SnowAnimation(snow[i]); //设置落雪动画。
+
+                    climateRectangle.add(particle[timer.getValue() * 4 + i]);
+
+                    snowSet.getChildren().add(particle[timer.getValue() * 4 + i]);
+
+                    SnowAnimation(particle[timer.getValue() * 4 + i]); //设置落雪动画。
                 }
             } // 增加4片雪花
         }));
@@ -115,11 +117,14 @@ public class Snow {
 
         int xInitial = new Random().nextInt(2900) - 500;
         int xFinal = new Random().nextInt(2000) - 1000 + xInitial;
+
         snowAnimation.setFromX(xInitial); // 起始位置X坐标：-500~2400内随机值
         snowAnimation.setToX(xFinal); // 终止位置X坐标：起始位置X坐标左右1000内随机值
         snowAnimation.setFromY(-20); //起始位置Y坐标：-20
         snowAnimation.setToY(1180); //终止位置Y坐标：1180
-        snowAnimation.setOnFinished(t -> SnowAnimation(snow));
+        snowAnimation.setOnFinished(e -> SnowAnimation(snow));
         snowAnimation.play();
+
+        climateTranslation.add(snowAnimation);
     }
 }

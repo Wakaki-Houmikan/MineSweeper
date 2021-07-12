@@ -1,6 +1,5 @@
 package module.animation;
 
-import bean.Timer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
@@ -16,13 +15,13 @@ import java.util.Random;
  *
  * <p>该动画借助TranslateTransition（位移动画）类，控制400个“烟粒”以随机的速率、起止点反复运动，以实现烟雾效果。</p>
  *
- * <p>该动画技术原理与 落雪动画（Snow Animation） 几乎一直，二者之间仅有参数设置上的差异。参见{@link /src/Module/Animation/Snow.java}。</p>
+ * <p>该动画技术原理与 落雪动画（Snow Animation） 几乎一致，二者之间仅有参数设置上的差异。参见{@link /src/Module/Animation/Snow.java}。</p>
  *
  * @author 分柿方橙
  * @version ver 0.1 (2021.7.10)
  * @since ver 1.1.4 (2021.7.10)
  */
-public class Smog {
+public class Smog extends Climate {
 
     /**
      * <p>含参建造器：添加烟雾动画</p>
@@ -53,25 +52,27 @@ public class Smog {
      * </code>
      * </p>
      *
-     * @param smogSet “雪的集合”群组
+     * @param smogSet “烟的集合”群组
      */
     public Smog(Group smogSet){
-        /* 创建一个时间数据类，用于记录时间 */
-        Timer timeSmog = new Timer(0);
 
         /* 创建时间线动画：每1000毫秒（0.1秒）执行一次，并发生以下事件 */
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(100), e ->{
-            timeSmog.run(); // 时间值+1
-            if (timeSmog.getValue() < 100){
+            timer.run(); // 时间值+1
+
+            if (timer.getValue() < 100){
                 for (int i = 0; i < 4; i++) {
-                    Rectangle[] smog = new Rectangle[4]; //创建一个长方形数组
                     double sideLength = (new Random()).nextDouble() * 6; //边长：6以内随机值
-                    smog[i] = new Rectangle(-100, -100, sideLength, sideLength); //先创建在(-100,-100位置)
-                    smog[i].setFill(Color.hsb(200,
+                    particle[timer.getValue() * 4 + i] = new Rectangle(-100, -100, sideLength, sideLength); //先创建在(-100,-100位置)
+                    particle[timer.getValue() * 4 + i].setFill(Color.hsb(200,
                             new Random().nextDouble() / 15,
                             1 - new Random().nextDouble() / 15)); //颜色：随机的浅灰蓝
-                    smogSet.getChildren().add(smog[i]);
-                    SmogAnimation(smog[i]); //设置烟雾动画。
+
+                    climateRectangle.add(particle[timer.getValue() * 4 + i]);
+
+                    smogSet.getChildren().add(particle[timer.getValue() * 4 +i]);
+
+                    SmogAnimation(particle[timer.getValue() * 4 +i]); //设置烟雾动画。
                 }
             } // 增加4片雪花
         }));
@@ -99,7 +100,10 @@ public class Smog {
         smogAnimation.setToX(xFinal); // 终止位置X坐标：起始位置X坐标左右1000内随机值
         smogAnimation.setFromY(1180); //起始位置Y坐标：1180
         smogAnimation.setToY(yFinal); //终止位置Y坐标：随机值
-        smogAnimation.setOnFinished(t -> SmogAnimation(smog));
+        smogAnimation.setOnFinished(e -> SmogAnimation(smog)); //停止的时候重新播放该动画
         smogAnimation.play();
+
+        climateTranslation.add(smogAnimation);
     }
+
 }
