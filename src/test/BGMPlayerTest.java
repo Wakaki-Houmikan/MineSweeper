@@ -22,7 +22,7 @@ public class BGMPlayerTest extends Application {
         new MenuBarInGame(menubar);
         root.getChildren().addAll(menubar);
 
-        BGMPlayer.musicCut((byte) 4,0.30);
+        BGMPlayer.musicStart(4);
 
         Scene scene = new Scene(root, 1900,960, Color.BLACK);
 
