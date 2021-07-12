@@ -9,7 +9,7 @@ import java.io.Serializable;
  * value值会增加10，使用时需注意数据转换。</p>
  *
  * @author 分柿方橙
- * @version ver 1.0 (2021.7.5)
+ * @version ver 1.1 (2021.7.12)
  * @since ver 1.1.0 (2021.7.5)
  */
 public class Timer implements Serializable {
@@ -44,6 +44,11 @@ public class Timer implements Serializable {
      * 获取值：获取计时器的时间值。
      */
     public int getValue() { return value; }
+
+    /**
+     * 设置值：获取计时器的时间值。
+     */
+    public void setValue(int value) { this.value = value; }
 
     /**
      * 时间值转换为字符串：
