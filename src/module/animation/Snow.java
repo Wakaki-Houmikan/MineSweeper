@@ -16,9 +16,9 @@ import java.util.Random;
  *
  * <p>该动画借助TranslateTransition（位移动画）类，控制1200个“雪粒”以随机的速率从起始点往终止点单向运动，以实现下雪效果。</p>
  *
- * <p>雪粒：边长为6以内随机数的正方形，颜色在白色——浅灰蓝之间扰动。</p>
+ * <p>关于该动画的主要技术原理，参见其父类（Climate类）帮助文档{@link /src/Module/Animation/Climate.java}。</p>
  *
- * <p>单个雪粒的运动：反复地以均匀速度从起始点直线运动到终止点。<br>
+ * <p>单个雪粒的运动参数：<br>
  * <ul>
  * <li>起始点：X坐标为-500~2400像素间的随机值，Y坐标为-20像素；</li>
  * <li>终止点：X坐标为起始点X坐标左右1000像素内的随机值，Y坐标为1180；</li>
@@ -27,21 +27,8 @@ import java.util.Random;
  * </ul>
  * </p>
  *
- * <p>雪粒群：从动画开始运行的一瞬间起，在接下来的30秒内，每0.1秒新增4个雪粒，并令其进行上述运动，最多有1200个雪粒同时运动。由
- * 于雪花运动起止点在窗口范围外，窗口显示的雪粒个数小于该数。宏观上，降雪速率稳定在40雪粒/秒（含窗口的不可视区域）。</p>
- *
- * <p>作者制作本动画时，参考了<a href="https://github.com/ajithkp560/SnowFallingAnimationJavaFX">ajithkp560的作品</a>，
- * 并对其进行了大幅魔改和优化。代表性改动如下：
- * <ul>
- * <li>将“一次性向动画内添加所有雪粒”改为“前30秒内，每隔0.1秒添加4颗雪粒”，以缓解原作动画 播放一段时间后降雪速率会发生一次突变 的问题。</li>
- * <li>将雪粒从圆形改为方形，以适应本作品的像素风格。</li>
- * <li>将雪粒的颜色从纯白改为随机的浅灰蓝色。</li>
- * <li>将被建议废弃的TranslateTransitionBuilder方法替换成TranslateTransition方法。</li>
- * </ul>
- * </p>
- *
  * @author 分柿方橙
- * @version ver 1.1 (2021.7.10)
+ * @version ver 1.3 (2021.7.13)
  * @since ver 1.1.3 (2021.7.9)
  */
 public class Snow extends Climate{
@@ -49,35 +36,12 @@ public class Snow extends Climate{
     /**
      * <p>含参建造器：添加下雪动画</p>
      *
-     * <p>基本用法：<br>
-     * <code>
-     *     Group snowSet = new Group();<br>
-     *     new Snow(snowSet);<br>
-     *     // 记得把snowSet添加进Group root。
-     * </code>
-     * </p>
-     *
-     * <p>魔性用法：<br>
-     * 1. 可以直接向Group root里添加本动画：<br>
-     * <code>
-     *     new Snow(root)<br>
-     * </code>
-     * 2. 可以对一个Group多次添加动画，以获得多倍的雪：<br>
-     * <code>
-     *     Group snowSet = new Group();<br>
-     *     new Snow(snowSet);<br>
-     *     new Snow(snowSet);<br>
-     *     new Snow(snowSet);<br>
-     *     new Snow(snowSet);<br>
-     *     new Snow(snowSet);<br>
-     *     ......<br>
-     *     // 记得把snowSet添加进Group root。
-     * </code>
-     * </p>
+     * <p>用法参见Climate类帮助文档。</p>
      *
      * @param snowSet “雪的集合”群组
      */
     public Snow(Group snowSet){
+        super(snowSet);
 
         /* 创建时间线动画：每1000毫秒（0.1秒）执行一次，并发生以下事件 */
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(100), e ->{
@@ -110,6 +74,15 @@ public class Snow extends Climate{
      */
     private void SnowAnimation(Rectangle snow) {
         int time = 10 + (new Random()).nextInt(40); //周期：10~50秒中随机值
+
+        if (time / 10 <= 2){
+            snow.setOpacity(1);
+        } else if (time / 10 < 4){
+            snow.setOpacity(0.64);
+        } else {
+            snow.setOpacity(0.32);
+        }
+
         /* 创建位移动画 */
         TranslateTransition snowAnimation = new TranslateTransition();
         snowAnimation.setNode(snow);
