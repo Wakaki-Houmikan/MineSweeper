@@ -1,6 +1,5 @@
 package module.animation;
 
-import bean.Timer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
