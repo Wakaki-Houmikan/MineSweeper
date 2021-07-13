@@ -3,7 +3,22 @@ package module.menubar;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
+/**
+ * <strong><big>游戏菜单  Game Menu</big></strong>
+ *
+ * <p>可添加至菜单栏的游戏相关控件组，包含暂停游戏、继续游戏、排行榜、重玩本轮、新游戏、退出游戏六项内容。</p>
+ *
+ * @author 分柿方橙
+ * @version ver 1.0 (2021.7.11)
+ * @since ver 1.1.5 (2021.7.11)
+ */
 public class MenuGame {
+
+    /**
+     * 建造器：为提供的菜单栏加上游戏相关控件
+     *
+     * @param menuGame 菜单组
+     */
     public MenuGame(Menu menuGame){
         /* 菜单栏 -> 游戏 */
         ToggleGroup itemPC = new ToggleGroup();

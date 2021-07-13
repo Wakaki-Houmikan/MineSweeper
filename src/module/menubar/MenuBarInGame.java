@@ -1,12 +1,24 @@
 package module.menubar;
 
-import javafx.event.ActionEvent;
 import javafx.scene.Group;
 import javafx.scene.control.*;
-import musics.BGMPlayer;
 
+/**
+ * <strong><big>菜单栏  Menu Bar</big></strong>
+ *
+ * <p>游戏运行界面的菜单栏，包含游戏、档案、音乐、图像、帮助五组内容。</p>
+ *
+ * @author 分柿方橙
+ * @version ver 1.1 (2021.7.13)
+ * @since ver 1.1.4 (2021.7.10)
+ */
 public class MenuBarInGame {
 
+    /**
+     * 建造器：为界面加上菜单栏，需要提供一个Group
+     *
+     * @param menuBar 控件组
+     */
     public MenuBarInGame(Group menuBar){
 
         /* 菜单栏 */
@@ -25,25 +37,12 @@ public class MenuBarInGame {
         new MenuGraphic(menuGraphic);
 
         Menu menuHelp = new Menu("帮助");
+        new MenuHelp(menuHelp);
 
         bar.getMenus().addAll(menuGame, menuProfile, menuMusic, menuGraphic, menuHelp);
         bar.setPrefWidth(2000);
         menuBar.getChildren().add(bar);
 
-
-
-
-
-        /* 菜单栏 -> 帮助 */
-        MenuItem itemHelpDoc = new MenuItem("关于扫雷");
-        MenuItem itemDevDoc = new MenuItem("更新日志");
-        menuHelp.getItems().addAll(itemHelpDoc, itemDevDoc);
     }
-
-
-
-
-
-
 
 }

@@ -6,9 +6,23 @@ import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.ToggleGroup;
 import module.animation.Climate;
-import module.animation.Smog;
 
+/**
+ * <strong><big>图像菜单  Graphic Menu</big></strong>
+ *
+ * <p>可添加至菜单栏的图像相关控件组，包含图片背景、单色背景、动画开、动画关四项内容。</p>
+ *
+ * @author 分柿方橙
+ * @version ver 1.0 (2021.7.11)
+ * @since ver 1.1.5 (2021.7.11)
+ */
 public class MenuGraphic {
+
+    /**
+     * 建造器：为提供的菜单栏加上图像相关控件
+     *
+     * @param menuGraphic 菜单组
+     */
     public MenuGraphic(Menu menuGraphic){
         /* 菜单栏 -> 图像 */
         ToggleGroup itemBG = new ToggleGroup();
