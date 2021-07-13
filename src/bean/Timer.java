@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @version ver 1.1 (2021.7.12)
  * @since ver 1.1.0 (2021.7.5)
  */
-public class Timer implements Serializable {
+public class Timer {
     /**
      * 时间值
      */

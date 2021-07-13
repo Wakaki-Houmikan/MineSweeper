@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @version ver 1.4 (2021.7.7)
  * @since ver 1.1.0 (2021.7.5)
  */
-public class Game implements Serializable {
+public class Game {
 
     private int blockNumX; // 宽度（列数）
     private int blockNumY; // 高度（行数）

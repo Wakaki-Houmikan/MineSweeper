@@ -653,7 +653,7 @@ public class ChooseMode {
         primaryStage.close();
 
         /* 创建一个Game */
-        Game game = new Game(ng_x, ng_y, ng_m, ng_time, ng_land, ng_charaNum,
+        Save.game = new Game(ng_x, ng_y, ng_m, ng_time, ng_land, ng_charaNum,
                 ng_charaRed, ng_charaBlu, ng_charaGre, ng_charaPur,
                 ng_modCascade, ng_stepLim, ng_timeLim,
                 ng_modLife, ng_modCheat, ng_modCure,
@@ -662,27 +662,26 @@ public class ChooseMode {
                 false);
 
         /* 创建四个角色 */
-        Chara charaRed; Chara charaBlu; Chara charaGre; Chara charaPur;
         if (charaRedChosen) {
-            charaRed = new Chara(true, "red", ng_nameRed, 0, 0,
+            Save.charaRed = new Chara(true, "red", ng_nameRed, 0, 0,
                     ng_timeLim, ng_stepLim, 5, ng_timeLim, ng_stepLim, 5,
                     false, false, false,false); }
-        else { charaRed = new Chara(false); }
+        else { Save.charaRed = new Chara(false); }
         if (charaBluChosen) {
-            charaBlu = new Chara(true, "blu", ng_nameBlu, 0, 0,
+            Save.charaBlu = new Chara(true, "blu", ng_nameBlu, 0, 0,
                     ng_timeLim, ng_stepLim, 5, ng_timeLim, ng_stepLim, 5,
                     false, false, false,false); }
-        else { charaBlu = new Chara(false); }
+        else { Save.charaBlu = new Chara(false); }
         if (charaGreChosen) {
-            charaGre = new Chara(true, "gre", ng_nameGre, 0, 0,
+            Save.charaGre = new Chara(true, "gre", ng_nameGre, 0, 0,
                     ng_timeLim, ng_stepLim, 5, ng_timeLim, ng_stepLim, 5,
                     false, false, false,false); }
-        else { charaGre = new Chara(false); }
+        else { Save.charaGre = new Chara(false); }
         if (charaPurChosen) {
-            charaPur = new Chara(true, "pur", ng_namePur, 0, 0,
+            Save.charaPur = new Chara(true, "pur", ng_namePur, 0, 0,
                     ng_timeLim, ng_stepLim, 5, ng_timeLim, ng_stepLim, 5,
                     false, false, false,false); }
-        else { charaPur = new Chara(false); }//如果角色被选择，用前一种；没被选择，后一种
+        else { Save.charaPur = new Chara(false); }//如果角色被选择，用前一种；没被选择，后一种
 
         /* 开启新窗口GameMainPane */
 //        new GameMainPlane(game0, charaRed, charaBlu, charaGre, charaPur, new TimeData(), new TimeData());

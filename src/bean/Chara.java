@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @version ver 1.2 (2021.7.7)
  * @since ver 1.1.0 (2021.7.5)
  */
-public class Chara implements Serializable {
+public class Chara {
 
     private boolean choosed; // 选中
     private String color; // 颜色

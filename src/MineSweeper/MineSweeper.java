@@ -14,7 +14,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
- * Project Mine Sweeper Java Edition
+ * <strong><big>Project Mine Sweeper Java Edition</big></strong>
  *
  * @author 久置乙醚工作室 · 分柿方橙Spikey
  * @version ver 1.0 (2021.7.1)
