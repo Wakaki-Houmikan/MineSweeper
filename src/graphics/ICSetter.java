@@ -5,7 +5,7 @@ import javafx.scene.image.Image;
 /**
  * <strong><big>图标设置器  Icon Setter</big></strong>
  *
- * <p>内置src/graphics/IC下用Image打包的游戏图标，单个窗口内可重复使用。</p>
+ * <p>内置src/graphics/IC下用Image打包的游戏图标，可重复使用。</p>
  *
  * @author 分柿方橙
  * @version ver 0.2 (2021.7.15)

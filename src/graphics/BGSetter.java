@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 /**
  * <strong><big>背景设置器  Background Setter</big></strong>
  *
- * <p>内置src/graphics/BG下用ImageView打包的大型图片，用于设置页面的背景图片。每个窗口内每张图只能使用一次。</p>
+ * <p>内置src/graphics/BG下用ImageView打包的大型图片，用于设置页面的背景图片。每张图只能使用一次。</p>
  *
  * @author 分柿方橙
  * @version ver 0.2 (2021.7.15)
