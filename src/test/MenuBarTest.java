@@ -1,5 +1,6 @@
 package test;
 
+import graphics.BGSetter;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -17,7 +18,7 @@ public class MenuBarTest extends Application {
 
             Group smogSet = new Group();
             new Snow(smogSet);
-            root.getChildren().addAll(smogSet);
+            root.getChildren().addAll(BGSetter.Mount3, smogSet);
 
 //        for (int i = 0; i <= 10; i++){
 //            Group smogSet = new Group();
@@ -31,7 +32,7 @@ public class MenuBarTest extends Application {
         BGMPlayer.setVolume(0.12);
         BGMPlayer.musicStart(5);
 
-        Scene scene = new Scene(root, 1900,960, Color.BLACK);
+        Scene scene = new Scene(root, 1900,960, Color.WHITE);
 
         primaryStage.setTitle("Mine Sweeper");
         primaryStage.setScene(scene);

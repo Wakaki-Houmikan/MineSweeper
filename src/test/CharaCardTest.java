@@ -2,12 +2,14 @@ package test;
 
 import bean.Game;
 import bean.Save;
+import graphics.ICSetter;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import module.charaBox.BluCard;
+import module.charaBox.CharaCard;
 import module.charaBox.RedCard;
 
 public class CharaCardTest extends Application {
@@ -21,20 +23,22 @@ public class CharaCardTest extends Application {
                 true,1,1,true,true,true,
                 1,1,new byte[1][2],new String[2][3],false);
 
-        Group redCard = new Group();
-        RedCard redPanel = new RedCard(redCard);
-        redCard.setLayoutX(50);
-        root.getChildren().addAll(redCard);
+        Group redCardGroup = new Group();
+        CharaCard redCard = new RedCard(redCardGroup);
+        redCardGroup.setLayoutX(50);
+        root.getChildren().addAll(redCardGroup);
 
 
-        Group blueCard = new Group();
-        new BluCard(blueCard);
-        blueCard.setLayoutX(50);
-        blueCard.setLayoutY(500);
-        root.getChildren().addAll(blueCard);
+        Group blueCardGroup = new Group();
+        CharaCard bluCard = new BluCard(blueCardGroup);
+        blueCardGroup.setLayoutX(50);
+        blueCardGroup.setLayoutY(500);
+        root.getChildren().addAll(blueCardGroup);
 
-        redPanel.name.setText("222");
-        redPanel.life4.setImage(null);
+        redCard.name.setText("222");
+        redCard.life4.setImage(null);
+        redCard.stepLeft.setText("223");
+        bluCard.status.setImage(ICSetter.FishBlu);
 
         Scene scene = new Scene(root, 1900,960, Color.BLACK);
 
