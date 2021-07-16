@@ -19,6 +19,6 @@ public class Save implements Serializable {
     public static Chara charaGre;
     public static Chara charaPur;
 
-    public static Timer timeMain;
-    public static Timer timeChara;
+    public static Timer timerMain;
+    public static Timer timerChara;
 }
