@@ -99,9 +99,9 @@ public class CharaCard{
     /**
      * 方法：通用卡片设置，只允许包内类使用
      *
-     * @param charaCard 角色卡片
+     * @param charaCardGroup 角色卡片
      */
-    void setCardCommon(Group charaCard){
+    void setCardCommon(Group charaCardGroup){
         /* 角色状态 */
         status.setX(50); status.setY(15);
         /* 姓名框 */
@@ -129,7 +129,7 @@ public class CharaCard{
         robot.setPrefWidth(90); robot.setPrefHeight(90);
         robot.setBackground(null);
 
-        charaCard.getChildren().addAll(nameRec, timeLefLab, stepLefLab, scoreLab, missLab,
+        charaCardGroup.getChildren().addAll(nameRec, timeLefLab, stepLefLab, scoreLab, missLab,
                 name, timeLeft, stepLeft, score, miss, status, robot);
 
         /* 选择生命值模组 */
@@ -146,7 +146,7 @@ public class CharaCard{
             life3.setX(290); life3.setY(110);
             life4.setX(320); life4.setY(110);
             life5.setX(350); life5.setY(110);
-            charaCard.getChildren().addAll(lifeLab, life1, life2, life3, life4, life5);
+            charaCardGroup.getChildren().addAll(lifeLab, life1, life2, life3, life4, life5);
         }
 
     }

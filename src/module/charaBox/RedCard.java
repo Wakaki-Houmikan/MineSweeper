@@ -54,7 +54,6 @@ public class RedCard extends CharaCard {
 
         /* 托管 */
         robot.setOnAction(this::charaRedRobot);
-        redCardGroup.getChildren().addAll(robot);
 
     }
 

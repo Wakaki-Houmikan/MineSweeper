@@ -54,7 +54,6 @@ public class GreCard extends CharaCard {
 
         /* 托管 */
         robot.setOnAction(this::charaGreRobot);
-        greCardGroup.getChildren().addAll(robot);
 
     }
 

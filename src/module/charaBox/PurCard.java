@@ -54,7 +54,6 @@ public class PurCard extends CharaCard {
 
         /* 托管 */
         robot.setOnAction(this::charaPurRobot);
-        purCardGroup.getChildren().addAll(robot);
 
     }
 

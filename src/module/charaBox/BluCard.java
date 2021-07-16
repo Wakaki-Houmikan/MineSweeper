@@ -54,7 +54,6 @@ public class BluCard extends CharaCard {
 
         /* 托管 */
         robot.setOnAction(this::charaBluRobot);
-        bluCardGroup.getChildren().addAll(robot);
 
     }
 
