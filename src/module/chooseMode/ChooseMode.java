@@ -1,15 +1,11 @@
 package module.chooseMode;
 
-import mineSweeper.MineSweeper;
-import javafx.event.ActionEvent;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import module.gamePlay.GamePlay;
 
 /**
  * <strong><big>模式选择（界面）  Choose Mode</big></strong>
@@ -22,97 +18,94 @@ import module.gamePlay.GamePlay;
  */
 public class ChooseMode {
     /* 初始数据 */
-    String blockNumX = "16"; // 宽度
-    String blockNumY = "16"; // 高度
-    String mineNum = "40"; // 雷数
-    byte level = 2; // 初始是中级
+    static String blockNumX = "16"; // 宽度
+    static String blockNumY = "16"; // 高度
+    static String mineNum = "40"; // 雷数
+    static byte level = 2; // 初始是中级
 
-    byte timeAttri = 1; // 游戏时间
-    byte landAttri = 1; // 游戏场景
+    static byte timeAttri = 1; // 游戏时间
+    static byte landAttri = 1; // 游戏场景
 
-    boolean charaRedChosen = false; // 红队
-    boolean charaBluChosen = false; // 蓝队
-    boolean charaGreChosen = false; // 绿队
-    boolean charaPurChosen = false; // 紫队
+    static boolean charaRedChosen = false; // 红队
+    static boolean charaBluChosen = false; // 蓝队
+    static boolean charaGreChosen = false; // 绿队
+    static boolean charaPurChosen = false; // 紫队
 
-    boolean modCascade; // 单人·自动开采
+    static boolean modCascade; // 单人·自动开采
 
-    String stepLim; // 多人·回合步数
-    String timeLim; // 多人·回合时限
-    boolean modLife; // 多人·开启生命
-    boolean modCheat; // 多人·开启侦察
-    boolean modCure; // 多人·开启治愈
+    static String stepLim; // 多人·回合步数
+    static String timeLim; // 多人·回合时限
+    static boolean modLife; // 多人·开启生命
+    static boolean modCheat; // 多人·开启侦察
+    static boolean modCure; // 多人·开启治愈
 
     /* ---------------------------------------------以下是GUI---------------------------------------------------------- */
 
     public Stage modeSelectStage;
 
     /* 模式介绍 */
-    Text modeName = new Text();
-    Text modeIntro = new Text();
+    static Text modeName = new Text();
+    static Text modeIntro = new Text();
 
     /* 输入框们 */
-    TextField userX = new TextField();
-    TextField userY = new TextField();
-    TextField userM = new TextField();
+    static TextField userX = new TextField();
+    static TextField userY = new TextField();
+    static TextField userM = new TextField();
 
-    TextField chaRedName = new TextField();
-    TextField chaBluName = new TextField();
-    TextField chaGreName = new TextField();
-    TextField chaPurName = new TextField();
+    static TextField chaRedName = new TextField();
+    static TextField chaBluName = new TextField();
+    static TextField chaGreName = new TextField();
+    static TextField chaPurName = new TextField();
 
-    TextField mulStep = new TextField();
-    TextField mulTime = new TextField();
+    static TextField mulStep = new TextField();
+    static TextField mulTime = new TextField();
 
     /* 按钮们 */
-    RadioButton easy = new RadioButton("初级    9×  9地图，10地雷");
-    RadioButton norm = new RadioButton("中级  16×16地图，40地雷");
-    RadioButton diff = new RadioButton("高级  16×30地图，99地雷");
-    RadioButton user = new RadioButton("自定义");
+    static RadioButton easy = new RadioButton("初级    9×  9地图，10地雷");
+    static RadioButton norm = new RadioButton("中级  16×16地图，40地雷");
+    static RadioButton diff = new RadioButton("高级  16×30地图，99地雷");
+    static RadioButton user = new RadioButton("自定义");
 
-    RadioButton dayA = new RadioButton("仅白昼");
-    RadioButton nigA = new RadioButton("仅深夜");
-    RadioButton cirT = new RadioButton("昼夜交替");
-    RadioButton ranT = new RadioButton("随机");
+    static RadioButton dayA = new RadioButton("仅白昼");
+    static RadioButton nigA = new RadioButton("仅深夜");
+    static RadioButton cirT = new RadioButton("昼夜交替");
+    static RadioButton ranT = new RadioButton("随机");
 
-    RadioButton plain = new RadioButton("平原");
-    RadioButton mount = new RadioButton("山区");
-    RadioButton badld = new RadioButton("恶地");
-    RadioButton ranMd = new RadioButton("随机");
+    static RadioButton plain = new RadioButton("平原");
+    static RadioButton mount = new RadioButton("山区");
+    static RadioButton badld = new RadioButton("恶地");
+    static RadioButton ranMd = new RadioButton("随机");
 
-    CheckBox charaRed = new CheckBox("红队");
-    CheckBox charaBlu = new CheckBox("蓝队");
-    CheckBox charaGre = new CheckBox("绿队");
-    CheckBox charaPur = new CheckBox("紫队");
+    static CheckBox charaRed = new CheckBox("红队");
+    static CheckBox charaBlu = new CheckBox("蓝队");
+    static CheckBox charaGre = new CheckBox("绿队");
+    static CheckBox charaPur = new CheckBox("紫队");
 
-    CheckBox spCascade = new CheckBox("自动开采");
+    static CheckBox spCascade = new CheckBox("自动开采");
 
-    CheckBox seMulStep = new CheckBox("回合步数 (1 ~ 5步)");
-    CheckBox seMulTime = new CheckBox("回合时限 (10 ~ 60秒)");
-    CheckBox life = new CheckBox("开启生命");
-    CheckBox lifeCheat = new CheckBox("开启侦察");
-    CheckBox lifeCure = new CheckBox("开启治愈");
+    static CheckBox seMulStep = new CheckBox("回合步数 (1 ~ 5步)");
+    static CheckBox seMulTime = new CheckBox("回合时限 (10 ~ 60秒)");
+    static CheckBox life = new CheckBox("开启生命");
+    static CheckBox lifeCheat = new CheckBox("开启侦察");
+    static CheckBox lifeCure = new CheckBox("开启治愈");
 
-    Button ye = new Button("确定");
-    Button no = new Button("取消");
+    static Button ye = new Button("确定");
+    static Button no = new Button("取消");
 
     Group root;
 
     public ChooseMode(){
-        FlowPane modeSelect = new FlowPane();
         root = new SetGUI().setGUI();
+        new SetEvent().setEvent();
 
         /* 难度设置 */
         ToggleGroup difficulty = new ToggleGroup();
-        easy.setOnAction(this::processButtonEasy); easy.setToggleGroup(difficulty);
-        norm.setOnAction(this::processButtonNorm); norm.setToggleGroup(difficulty);
-        diff.setOnAction(this::processButtonDiff); diff.setToggleGroup(difficulty);
-        user.setOnAction(this::processButtonUser); user.setToggleGroup(difficulty);
+        easy.setToggleGroup(difficulty);
+        norm.setToggleGroup(difficulty);
+        diff.setToggleGroup(difficulty);
+        user.setToggleGroup(difficulty);
         norm.setSelected(true);//自动选择中级
         /* 自定义 */
-        userY.setPrefWidth(70); userY.setDisable(true);
-        userX.setPrefWidth(70); userX.setDisable(true);
-        userM.setPrefWidth(70); userM.setDisable(true);
         userX.setTextFormatter(new TextFormatter<String>(t -> {
             String value = t.getText();
             if (value.matches("[0-9]*")){ return t; }
@@ -131,71 +124,56 @@ public class ChooseMode {
 
         /* 游戏时间 */
         ToggleGroup time = new ToggleGroup();
-        dayA.setOnAction(this::processButtonDayA); dayA.setToggleGroup(time);
-        nigA.setOnAction(this::processButtonNigA); nigA.setToggleGroup(time);
-        cirT.setOnAction(this::processButtonCirT); cirT.setToggleGroup(time);
-        ranT.setOnAction(this::processButtonRanT); ranT.setToggleGroup(time);
+        dayA.setToggleGroup(time);
+        nigA.setToggleGroup(time);
+        cirT.setToggleGroup(time);
+        ranT.setToggleGroup(time);
         dayA.setSelected(true);//自动选择中级
 
         Group timeSet = new Group(dayA, nigA, cirT, ranT);
 
         /* 游戏场景 */
         ToggleGroup land = new ToggleGroup();
-        plain.setOnAction(this::processButtonPlain); plain.setToggleGroup(land);
-        mount.setOnAction(this::processButtonMount); mount.setToggleGroup(land);
-        badld.setOnAction(this::processButtonBadld); badld.setToggleGroup(land);
-        ranMd.setOnAction(this::processButtonRanMd); ranMd.setToggleGroup(land);
+        plain.setToggleGroup(land);
+        mount.setToggleGroup(land);
+        badld.setToggleGroup(land);
+        ranMd.setToggleGroup(land);
         plain.setSelected(true);//自动选择中级
 
         Group landSet = new Group(plain, mount, badld, ranMd);
 
         /* 游戏角色 */
-        charaRed.setOnAction(this::processButtonCharaRed);
-        charaBlu.setOnAction(this::processButtonCharaBlu);
-        charaGre.setOnAction(this::processButtonCharaGre);
-        charaPur.setOnAction(this::processButtonCharaPur);
-
         Group charaSet = new Group(charaRed, charaBlu, charaGre, charaPur,
                 chaRedName, chaBluName, chaGreName, chaPurName);
 
         /* 单人游戏模组 */
         /* 自动开采 */
-        spCascade.setOnAction(this::processButtonCascade);
-
         Group singlePlayer = new Group(spCascade);
 
         /* 多人游戏模组 */
         /* 回合步数 */
-        seMulStep.setOnAction(this::processButtonMulStep);
         mulStep.setTextFormatter(new TextFormatter<String>(t -> {
             String value = t.getText();
             if (value.matches("[0-9]*")){ return t; }
             return null; }));//只能输入数字
         /* 回合时限 */
-        seMulTime.setOnAction(this::processButtonMulTime);
         mulTime.setTextFormatter(new TextFormatter<String>(t -> {
             String value = t.getText();
             if (value.matches("[0-9]*")){ return t; }
             return null; }));//只能输入数字
         /* 开启生命 */
-        life.setOnAction(this::processButtonLife);
         /* 开启侦察 */
-        lifeCheat.setOnAction(this::processButtonLifeCheat);
         /* 开启治愈 */
-        lifeCure.setOnAction(this::processButtonLifeCure);
 
-        Group multiPlayer = new Group(modeSelect, seMulStep, mulStep, seMulTime, mulTime,
+        Group multiPlayer = new Group(seMulStep, mulStep, seMulTime, mulTime,
                 life, lifeCheat, lifeCure);
 
         /* 确定和取消 */
-        ye.setOnAction(this::processButYe);
-        no.setOnAction(this::processButNo);
 
         Group goOn = new Group(ye, no);
 
         /* 根集合 */
-        root.getChildren().addAll(difficultySet, timeSet, landSet, charaSet,
-                singlePlayer, multiPlayer, goOn);
+        root.getChildren().addAll(difficultySet, timeSet, landSet, charaSet, singlePlayer, multiPlayer, goOn);
 
         Scene mainStartScene = new Scene(root, 688, 908, Color.color(0.909, 0.929, 0.939));
 
@@ -205,273 +183,5 @@ public class ChooseMode {
         modeSelectStage.setResizable(false);
         modeSelectStage.show();
     }
-    /* ---------------------------------------------以下是按键操作---------------------------------------------------------- */
 
-    /* 初级 */
-    private void processButtonEasy(ActionEvent actionEvent) {
-        userX.setDisable(true);
-        userY.setDisable(true);
-        userM.setDisable(true);//禁止填写自定义
-        level = 1;
-        blockNumX = "9"; blockNumY = "9"; mineNum = "10";//赋值
-        modeName.setText("【初级模式】");
-        modeIntro.setText("      游戏地图为9行9列网格，随机分布10个地雷，布雷率12.346%。");
-    }
-    /* 中级 */
-    private void processButtonNorm(ActionEvent actionEvent) {
-        userX.setDisable(true);
-        userY.setDisable(true);
-        userM.setDisable(true);//禁止填写自定义
-        level = 2;
-        blockNumX = "16"; blockNumY = "16"; mineNum = "40";//赋值
-        modeName.setText("【中级模式】");
-        modeIntro.setText("      游戏地图为16行16列网格，随机分布40个地雷，布雷率15.625%。");
-    }
-    /* 高级 */
-    private void processButtonDiff(ActionEvent actionEvent) {
-        userX.setDisable(true);
-        userY.setDisable(true);
-        userM.setDisable(true);//禁止填写自定义
-        level = 3;
-        blockNumX = "30"; blockNumY = "16"; mineNum = "99";//赋值
-        modeName.setText("【高级模式】");
-        modeIntro.setText("      游戏地图为16行30列网格，随机分布99个地雷，布雷率20.625%。");
-    }
-    /* 自定义 */
-    private void processButtonUser(ActionEvent actionEvent) {
-        userX.setDisable(false);
-        userY.setDisable(false);
-        userM.setDisable(false);//允许填写自定义
-        level = 4;
-        modeName.setText("【自定义模式】");
-        modeIntro.setText("      您可以自行设置地图网格的行数（9 ~ 24）、列数（9 ~ 30）、地雷数\n" +
-                "（10 ~ 360且布雷率 = 地雷数 ÷ (行数 × 列数) × 100% ≤ 50%）。");
-    }
-
-    /* 白天 */
-    private void processButtonDayA(ActionEvent actionEvent) {
-        timeAttri = 1;
-        modeName.setText("【终为白昼】");
-        modeIntro.setText("      将游戏设置在白昼进行。若玩家打开的区块为安全区块（该区块及紧邻\n" +
-                "其的周围八格不含地雷），与其紧邻的8个区块将被自动打开，如此往复，\n" +
-                "直到没有新的区块能再被此循环打开。");
-    }
-    /* 夜晚 */
-    private void processButtonNigA(ActionEvent actionEvent) {
-        timeAttri = 2;
-        modeName.setText("【终为深夜】");
-        modeIntro.setText("      将游戏设置在深夜进行。无论玩家打开的区块是否安全（安全区块自身\n" +
-                "及紧邻的周围八格不含地雷），都只能在每次鼠标操作中打开这一个方块。");
-    }
-    /* 昼夜交替 */
-    private void processButtonCirT(ActionEvent actionEvent) {
-        timeAttri = 3;
-        modeName.setText("【昼夜交替】");
-        modeIntro.setText("      开始游戏时，游戏内时间为白昼 · 上午，接着，游戏每运行8分钟，将完\n" +
-                "成一次昼夜循环。关于白昼与深夜的区别，参见 “游戏时间——仅白昼” 和 “游\n" +
-                "戏时间——仅深夜” 模式的帮助。");
-    }
-    /* 随机 */
-    private void processButtonRanT(ActionEvent actionEvent) {
-        timeAttri = 4;
-        modeName.setText("【随机】");
-        modeIntro.setText("      随机选择游戏时间设置。");
-    }
-
-
-    /* 平原 */
-    private void processButtonPlain(ActionEvent actionEvent) {
-        landAttri = 1;
-        modeName.setText("【平原】");
-        modeIntro.setText("      将游戏设置在山区场景中进行。山区气候寒冷、地势崎岖，生长着高草\n" +
-                "和零星的花卉。若游戏内时间被设置为 “昼夜交替” ，则昼夜等长。");
-    }
-    /* 山区 */
-    private void processButtonMount(ActionEvent actionEvent) {
-        landAttri = 2;
-        modeName.setText("【山区】");
-        modeIntro.setText("      将游戏设置在平原场景中进行。平原气候温和、地势平坦，生长着耐寒\n" +
-                "的矮草和杉树，青色的山石常常裸露。若时间模式被设置为 “昼夜交替” ，\n" +
-                "则夜晚略长于白日。若在 “多人对战” 模式中开启 “治愈” 模式，则深夜\n" +
-                "期间生命值恢复速度为通常值的一半。");
-    }
-    /* 恶地 */
-    private void processButtonBadld(ActionEvent actionEvent) {
-        landAttri = 3;
-        modeName.setText("【恶地】");
-        modeIntro.setText("      将游戏设置在恶地场景中进行。恶地气候炎热、地势有一定起伏，零散\n" +
-                "生长着仙人掌等沙漠耐旱植物。若时间模式被设置为 “昼夜交替” ，则白日\n" +
-                "略长于夜晚。若在 “多人对战” 模式中开启 “治愈” 模式，则白昼期间生\n" +
-                "命值恢复速度为通常值的一半。");
-    }
-    /* 随机 */
-    private void processButtonRanMd(ActionEvent actionEvent) {
-        landAttri = 4;
-        modeName.setText("【随机】");
-        modeIntro.setText("      随机选择游戏场景设置。");
-    }
-
-
-    /* 红 */
-    int countRed = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
-    private void processButtonCharaRed(ActionEvent actionEvent) {
-        countRed++;
-        if (countRed % 2 == 0){
-            chaRedName.setText("");
-            chaRedName.setDisable(true);
-            charaRedChosen = false;
-        } else {
-            chaRedName.setDisable(false);
-            charaRedChosen = true;
-        }
-        modeName.setText("【红队成员】");
-        modeIntro.setText("      红队的一位成员将参与本次扫雷任务。请在文本框中输入队员名字：\n" +
-                "不得以数字开头。");
-    }
-    /* 蓝 */
-    int countBlu = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
-    private void processButtonCharaBlu(ActionEvent actionEvent) {
-        countBlu++;
-        if (countBlu % 2 == 0){
-            chaBluName.setText("");
-            chaBluName.setDisable(true);
-            charaBluChosen = false;
-        } else {
-            chaBluName.setDisable(false);
-            charaBluChosen = true;
-        }
-        modeName.setText("【蓝队成员】");
-        modeIntro.setText("      蓝队的一位成员将参与本次扫雷任务。请在文本框中输入队员名字：\n" +
-                "不得以数字开头。");
-    }
-    /* 绿 */
-    int countGre = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
-    private void processButtonCharaGre(ActionEvent actionEvent) {
-        countGre++;
-        if (countGre % 2 == 0){
-            chaGreName.setText("");
-            chaGreName.setDisable(true);
-            charaGreChosen = false;
-        } else {
-            chaGreName.setDisable(false);
-            charaGreChosen = true;
-        }
-        modeName.setText("【绿队成员】");
-        modeIntro.setText("      绿队的一位成员将参与本次扫雷任务。请在文本框中输入队员名字：\n" +
-                "不得以数字开头。");
-    }
-    /* 紫 */
-    int countPur = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
-    private void processButtonCharaPur(ActionEvent actionEvent) {
-        countPur++;
-        if (countPur % 2 == 0){
-            chaPurName.setText("");
-            chaPurName.setDisable(true);
-            charaPurChosen = false;
-        } else {
-            chaPurName.setDisable(false);
-            charaPurChosen = true;
-        }
-        modeName.setText("【紫队成员】");
-        modeIntro.setText("      紫队的一位成员将参与本次扫雷任务。请在文本框中输入队员名字：\n" +
-                "不得以数字开头。");
-    }
-
-    /* 自动开采 */
-    int countCascade = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
-    private void processButtonCascade(ActionEvent actionEvent) {
-        countCascade++;
-        modCascade = countCascade % 2 != 0;
-        modeName.setText("【自动开采】");
-        modeIntro.setText("      若玩家打开的区块为安全区块（该区块及紧邻其的周围八格不含地雷），\n" +
-                "与其紧邻的8个区块将被自动打开，如此往复，直到没有新的区块能再被此\n" +
-                "循环打开。");
-    }
-
-    /* 回合步数 */
-    int countStep = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
-    private void processButtonMulStep(ActionEvent actionEvent) {
-        countStep++;
-        if (countStep % 2 == 0){
-            mulStep.setText("");
-            mulStep.setDisable(true);
-        } else {
-            mulStep.setDisable(false);
-        }
-        modeName.setText("【回合步数】");
-        modeIntro.setText("      多人模式下，设置每回合每位玩家所能进行的鼠标操作（打开区块、标\n" +
-                "记一区块为雷区、标记一区块可疑）次数。缺省值为5次。");
-    }
-    /* 回合时限 */
-    int countTime = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
-    private void processButtonMulTime(ActionEvent actionEvent) {
-        countTime++;
-        if (countTime % 2 == 0){
-            mulTime.setText("");
-            mulTime.setDisable(true);
-        } else {
-            mulTime.setDisable(false);
-        }
-        modeName.setText("【回合时限】");
-        modeIntro.setText("      多人模式下，设置每回合每位玩家进行鼠标操作 “回合步数” 上限次鼠\n" +
-                "标操作的最大限制时间。缺省值为20秒。");
-    }
-
-    /* 开启生命 */
-    int countLife = 0; // 记录鼠标点击次数，初始、点偶数次不能编辑，奇数次能编辑
-    private void processButtonLife(ActionEvent actionEvent) {
-        countLife++;
-        modLife = countLife % 2 != 0;
-        modeName.setText("【开启生命】");
-        modeIntro.setText("      多人模式下，游戏初始每位玩家都有5点生命值。玩家每触碰一次地雷，\n" +
-                "将失去1点生命值；当玩家生命值降为0时，玩家死亡；若所有雷被标记前，\n" +
-                "所有玩家均死亡，游戏提前结束，且本次游戏成绩不记入排行榜。仅当选择\n" +
-                " “开启生命” 时， “开启侦察” 和 “开启治愈” 选项有效.");
-    }
-    /* 开启侦察 */
-    int countCheat = 0; // 初始、点偶数次不能编辑，奇数次能编辑
-    private void processButtonLifeCheat(ActionEvent actionEvent) {
-        countCheat++;
-        modCheat = countCheat % 2 != 0;
-        modeName.setText("【开启侦察】");
-        modeIntro.setText("      多人模式下，玩家可在自己回合，执行 “侦察” 操作。玩家将消耗1点生\n" +
-                "命值，将指定区块及其相邻8块区块正确打开或正确标正记为雷。\n" +
-                "      若未选择 “开启生命” 选项，本选项不生效。");
-    }
-    /* 开启治愈 */
-    int countCure = 0; // 初始、点偶数次不能编辑，奇数次能编辑
-    private void processButtonLifeCure(ActionEvent actionEvent) {
-        countCure++;
-        modCure = countCure % 2 != 0;
-        modeName.setText("【开启治愈】");
-        modeIntro.setText("      多人模式下，玩家将逐渐恢复生命值。生命值恢复速度受游戏时间、场\n" +
-                "景影响。\n" +
-                "      若未选择 “开启生命” 选项，本选项不生效。");
-    }
-
-    /**
-     * 点击确定：创建新游戏
-     * @param actionEvent 点击确定
-     */
-    private void processButYe(ActionEvent actionEvent) {
-        new DataAnalysis().dataAnalysis();
-
-        /* 开启新窗口GamePlay */
-        Stage Stage = (Stage)no.getScene().getWindow();
-        Stage.close();
-        new GamePlay();
-    }
-
-
-    /**
-     * 点击取消：返回主菜单
-     * @param actionEvent 点击取消
-     */
-    private void processButNo(ActionEvent actionEvent) {
-        /* 打开开始界面 */
-        Stage Stage = (Stage)no.getScene().getWindow();
-        Stage.close();
-        MineSweeper open  = new MineSweeper();
-        open.start(new Stage());
-    }
 }

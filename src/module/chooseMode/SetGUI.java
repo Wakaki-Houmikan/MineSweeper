@@ -6,8 +6,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-class SetGUI extends ChooseMode{
+import static module.chooseMode.ChooseMode.*;
 
+class SetGUI {
 
     Font mainFont = new Font("Arial",16); //字体：等线16号
 
@@ -53,6 +54,9 @@ class SetGUI extends ChooseMode{
         userY.setLayoutX(555); userY.setLayoutY(160);
         userX.setLayoutX(555); userX.setLayoutY(190);
         userM.setLayoutX(555); userM.setLayoutY(220);
+        userY.setPrefWidth(70); userY.setDisable(true);
+        userX.setPrefWidth(70); userX.setDisable(true);
+        userM.setPrefWidth(70); userM.setDisable(true);
 
         /* 游戏时间 */
         Text seTime = new Text("游戏时间");

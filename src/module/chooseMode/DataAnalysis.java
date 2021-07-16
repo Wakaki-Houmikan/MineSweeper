@@ -8,7 +8,9 @@ import javafx.stage.Stage;
 
 import java.util.Random;
 
-public class DataAnalysis extends ChooseMode{
+import static module.chooseMode.ChooseMode.*;
+
+class DataAnalysis{
 
     void dataAnalysis(){
         /* 用于创建新游戏的数据：ng = newGame */
