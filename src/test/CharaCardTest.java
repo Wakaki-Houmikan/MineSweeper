@@ -2,7 +2,6 @@ package test;
 
 import bean.Game;
 import bean.Save;
-import graphics.ICSetter;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -12,6 +11,7 @@ import module.charaBox.BluCard;
 import module.charaBox.CharaCard;
 import module.charaBox.RedCard;
 import module.charaBox.SequenceSetter;
+import resources.graphics.ICSetter;
 
 public class CharaCardTest extends Application {
 

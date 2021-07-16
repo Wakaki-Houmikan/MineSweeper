@@ -1,7 +1,6 @@
 package module.charaBox;
 
 import bean.Save;
-import graphics.ICSetter;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -10,6 +9,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import resources.graphics.ICSetter;
 
 /**
  * <strong><big>角色卡片  Character Card</big></strong>
