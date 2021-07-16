@@ -112,7 +112,7 @@ class DataAnalysis{
                 ng_modCascade, ng_stepLim, ng_timeLim,
                 ng_modLife, ng_modCheat, ng_modCure,
                 0, 0,
-                new byte[ng_x][ng_y], new String[ng_x][ng_y],
+                new byte[ng_x + 2][ng_y + 2], new String[ng_x + 2][ng_y + 2],
                 false);
 
         /* 创建四个角色 */
