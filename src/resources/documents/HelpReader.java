@@ -45,14 +45,13 @@ public class HelpReader {
         StringBuilder sbHelpDoc = new StringBuilder();
         String text = null;
         try {
-            FileReader file = new FileReader("src/Module/Documents/Help.txt");
+            FileReader file = new FileReader("src/resources/documents/TXT/Help.txt");
             int chara;
             while( (chara = file.read()) != -1) {
                 sbHelpDoc.append((char)chara);
                 text = sbHelpDoc.toString();
             }
         } catch (IOException e) {
-            e.printStackTrace();
             text = "未找到相应文件。\n请从官方网站下载本游戏；请勿随意删除游戏组件，否则可能引起游戏崩溃！";
         }
 

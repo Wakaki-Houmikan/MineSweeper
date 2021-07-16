@@ -44,14 +44,13 @@ public class DevelopReader {
         StringBuilder sbHelpDoc = new StringBuilder();
         String text = null;
         try {
-            FileReader file = new FileReader("src/Module/Documents/Develop.txt");
+            FileReader file = new FileReader("src/resources/documents/TXT/Develop.txt");
             int chara;
             while( (chara = file.read()) != -1) {
                 sbHelpDoc.append((char)chara);
                 text = sbHelpDoc.toString();
             }
         } catch (IOException e) {
-            e.printStackTrace();
             text = "未找到相应文件。\n请从官方网站下载本游戏；请勿随意删除游戏组件，否则可能引起游戏崩溃！";
         }
         TextArea textArea = new TextArea(text);
