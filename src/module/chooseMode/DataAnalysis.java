@@ -137,7 +137,7 @@ class DataAnalysis{
                     false, false, false,false); }
         else { Save.charaPur = new Chara(false); }//如果角色被选择，用前一种；没被选择，后一种
 
-        Save.timeMain = new Timer();
-        Save.timeChara = new Timer();
+        Save.timerMain = new Timer();
+        Save.timerChara = new Timer();
     }
 }
