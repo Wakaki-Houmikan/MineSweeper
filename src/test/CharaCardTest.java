@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import module.charaBox.BluCard;
 import module.charaBox.CharaCard;
 import module.charaBox.RedCard;
+import module.charaBox.SequenceSetter;
 
 public class CharaCardTest extends Application {
 
@@ -19,7 +20,7 @@ public class CharaCardTest extends Application {
         Group root = new Group();
 
         Save.game = new Game(3,3,3,(byte)2,(byte)2,(byte)2,
-                true,true,true,true,
+                true,true,false,false,
                 true,1,1,true,true,true,
                 1,1,new byte[1][2],new String[2][3],false);
 
@@ -39,6 +40,7 @@ public class CharaCardTest extends Application {
         redCard.life4.setImage(null);
         redCard.stepLeft.setText("223");
         bluCard.status.setImage(ICSetter.FishBlu);
+        SequenceSetter.sequenceSetter(redCardGroup,blueCardGroup,new Group(), new Group());
 
         Scene scene = new Scene(root, 1900,960, Color.BLACK);
 
