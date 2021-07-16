@@ -5,7 +5,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.ToggleGroup;
-import musics.BGMPlayer;
+import resources.musics.BGMPlayer;
 
 /**
  * <strong><big>音乐菜单  Music Menu</big></strong>

@@ -1,7 +1,6 @@
-package MineSweeper;
+package mineSweeper;
 
-import graphics.BGSetter;
-import module.documents.Develop;
+import resources.documents.Develop;
 import module.chooseMode.ChooseMode;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -12,6 +11,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import resources.graphics.BGSetter;
 
 /**
  * <strong><big>Project Mine Sweeper Java Edition</big></strong>

@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import module.animation.Snow;
 import module.menubar.MenuBarInGame;
-import musics.BGMPlayer;
+import resources.musics.BGMPlayer;
 
 public class BGMPlayerTest extends Application {
 

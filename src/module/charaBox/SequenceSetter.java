@@ -17,10 +17,10 @@ public class SequenceSetter {
     /**
      * <p>为角色框进行排序，保证从上到下次序为红、蓝、绿、紫</p>
      *
-     * @param redCard 角色卡片（组）
-     * @param bluCard 角色卡片（组）
-     * @param greCard 角色卡片（组）
-     * @param purCard 角色卡片（组）
+     * @param redCard 角色卡片组
+     * @param bluCard 角色卡片组
+     * @param greCard 角色卡片组
+     * @param purCard 角色卡片组
      */
     public static void sequenceSetter (Group redCard, Group bluCard, Group greCard, Group purCard){
         byte hasAdded = 0;

@@ -1,4 +1,4 @@
-package musics;
+package resources.musics;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -30,15 +30,15 @@ public class BGMPlayer {
      * <p>   9   恶地 最终   绯红色的征兆 </p>
      */
     static final MediaPlayer[] MEDIA_PLAYER = { null,
-            new MediaPlayer(new Media(new File("src/musics/BGM/Memories of the Great Tree.mp3").toURI().toString())),
-            new MediaPlayer(new Media(new File("src/musics/BGM/One Star by the Next.mp3").toURI().toString())),
-            new MediaPlayer(new Media(new File("src/musics/BGM/Pitch Black.mp3").toURI().toString())),
-            new MediaPlayer(new Media(new File("src/musics/BGM/Song of the Hoarfrost.mp3").toURI().toString())),
-            new MediaPlayer(new Media(new File("src/musics/BGM/Flowers Blooming in the Empty Sky.mp3").toURI().toString())),
-            new MediaPlayer(new Media(new File("src/musics/BGM/Verethraghna.mp3").toURI().toString())),
-            new MediaPlayer(new Media(new File("src/musics/BGM/Blazing Earth.mp3").toURI().toString())),
-            new MediaPlayer(new Media(new File("src/musics/BGM/Exciting Cave Exploration.mp3").toURI().toString())),
-            new MediaPlayer(new Media(new File("src/musics/BGM/Crimson Omen.mp3").toURI().toString()))
+            new MediaPlayer(new Media(new File("src/resources.musics/BGM/Memories of the Great Tree.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/resources.musics/BGM/One Star by the Next.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/resources.musics/BGM/Pitch Black.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/resources.musics/BGM/Song of the Hoarfrost.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/resources.musics/BGM/Flowers Blooming in the Empty Sky.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/resources.musics/BGM/Verethraghna.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/resources.musics/BGM/Blazing Earth.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/resources.musics/BGM/Exciting Cave Exploration.mp3").toURI().toString())),
+            new MediaPlayer(new Media(new File("src/resources.musics/BGM/Crimson Omen.mp3").toURI().toString()))
     };
 
     /**

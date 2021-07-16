@@ -1,6 +1,5 @@
-package module.documents;
+package resources.documents;
 
-import graphics.BGSetter;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -10,42 +9,42 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import resources.graphics.BGSetter;
 
 import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * <strong><big>帮助文档  Help Document</big></strong>
+ * <strong><big>开发日志  Develop Log</big></strong>
  *
- * <p>展示游戏的帮助文档。</p>
+ * <p>展示游戏的开发日志。</p>
  *
  * @author 分柿方橙
  * @version ver 1.0 (2021.7.7)
  * @since ver 1.1.1 (2021.7.7)
  */
-public class Help {
-
-    Button toDevDoc = new Button("日志");
+public class Develop {
+    Button toHelpDoc = new Button("帮助");
     Button closePane = new Button("关闭");
 
-    Stage HelpDocStage = new Stage();
+    Stage DevDocStage = new Stage();
 
     /**
      * 构造方法：创建新窗口
      */
-    public Help(){
+    public Develop(){
         /* 打开背景图 */
-        BGSetter.Help.setX(0);
-        BGSetter.Help.setY(0);
+        BGSetter.Develop.setX(0);
+        BGSetter.Develop.setY(0);
 
-        FlowPane mainStartBg = new FlowPane(BGSetter.Help);
+        FlowPane mainStartBg = new FlowPane(BGSetter.Develop);
         mainStartBg.setStyle("-fx-background-color: ALICEBLUE");
 
         /* 读取帮助文档 */
         StringBuilder sbHelpDoc = new StringBuilder();
         String text = null;
         try {
-            FileReader file = new FileReader("src/Module/Documents/Help.txt");
+            FileReader file = new FileReader("src/Module/Documents/Develop.txt");
             int chara;
             while( (chara = file.read()) != -1) {
                 sbHelpDoc.append((char)chara);
@@ -55,7 +54,6 @@ public class Help {
             e.printStackTrace();
             text = "未找到相应文件。\n请从官方网站下载本游戏；请勿随意删除游戏组件，否则可能引起游戏崩溃！";
         }
-
         TextArea textArea = new TextArea(text);
         textArea.setFont(Font.font("Arial", 16));
         textArea.setWrapText(true);
@@ -68,12 +66,12 @@ public class Help {
         textArea.setEditable(false);
 
         /* 按钮：帮助 */
-        toDevDoc.setOnAction(this::preButHelpDoc);
-        toDevDoc.setFont(Font.font("Arial",20));
-        toDevDoc.setLayoutX(90);
-        toDevDoc.setLayoutY(550);
-        toDevDoc.setPrefWidth(70);
-        toDevDoc.setPrefHeight(45);
+        toHelpDoc.setOnAction(this::preButHelpDoc);
+        toHelpDoc.setFont(Font.font("Arial",20));
+        toHelpDoc.setLayoutX(90);
+        toHelpDoc.setLayoutY(550);
+        toHelpDoc.setPrefWidth(70);
+        toHelpDoc.setPrefHeight(45);
 
         /* 按钮：关闭 */
         closePane.setOnAction(this::preButClosePane);
@@ -83,17 +81,18 @@ public class Help {
         closePane.setPrefWidth(70);
         closePane.setPrefHeight(45);
 
-        Group root = new Group(mainStartBg, textArea, toDevDoc, closePane);
+        Group root = new Group(mainStartBg, textArea, toHelpDoc, closePane);
 
         Scene mainStartScene = new Scene(root, 528, 636, Color.ALICEBLUE);
 
-        HelpDocStage.setTitle("Mine Sweeper");
-        HelpDocStage.setScene(mainStartScene);
-        HelpDocStage.setResizable(false);
-        HelpDocStage.show();
+        DevDocStage.setTitle("Mine Sweeper");
+        DevDocStage.setScene(mainStartScene);
+        DevDocStage.setResizable(false);
+        DevDocStage.show();
     }
 
-    /** 前往帮助页
+    /**
+     * 前往帮助页
      *
      * @param actionEvent 点击“帮助”
      */
@@ -102,7 +101,7 @@ public class Help {
         Stage primaryStage = (Stage)closePane.getScene().getWindow();
         primaryStage.close();
         /* 打开帮助 */
-        Develop open  = new Develop();
+        Help open  = new Help();
 
     }
 
@@ -116,5 +115,6 @@ public class Help {
         Stage primaryStage = (Stage)closePane.getScene().getWindow();
         primaryStage.close();
     }
+
 
 }

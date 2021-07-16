@@ -1,7 +1,7 @@
 package module.chooseMode;
 
 import bean.*;
-import MineSweeper.MineSweeper;
+import mineSweeper.MineSweeper;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;
 import javafx.scene.Scene;

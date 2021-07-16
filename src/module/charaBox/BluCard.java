@@ -1,11 +1,10 @@
 package module.charaBox;
 
-import graphics.ICSetter;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import resources.graphics.ICSetter;
 
 /**
  * <strong><big>角色卡片·蓝  Character Card · Blue</big></strong>
