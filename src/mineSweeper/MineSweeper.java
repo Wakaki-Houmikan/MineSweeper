@@ -1,6 +1,6 @@
 package mineSweeper;
 
-import resources.documents.Develop;
+import resources.documents.DevelopReader;
 import module.chooseMode.ChooseMode;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -113,7 +113,7 @@ public class MineSweeper extends Application {
     }
 
     public void preButDevelopLog(ActionEvent event) {
-        new Develop();
+        new DevelopReader();
     }
 
     public static void main(String[] args)

@@ -23,7 +23,7 @@ import java.io.IOException;
  * @version ver 1.0 (2021.7.7)
  * @since ver 1.1.1 (2021.7.7)
  */
-public class Develop {
+public class DevelopReader {
     Button toHelpDoc = new Button("帮助");
     Button closePane = new Button("关闭");
 
@@ -32,7 +32,7 @@ public class Develop {
     /**
      * 构造方法：创建新窗口
      */
-    public Develop(){
+    public DevelopReader(){
         /* 打开背景图 */
         BGSetter.Develop.setX(0);
         BGSetter.Develop.setY(0);
@@ -101,7 +101,7 @@ public class Develop {
         Stage primaryStage = (Stage)closePane.getScene().getWindow();
         primaryStage.close();
         /* 打开帮助 */
-        Help open  = new Help();
+        HelpReader open  = new HelpReader();
 
     }
 
