@@ -18,12 +18,20 @@ public class MapGenerator {
     /**
      * 方法：生成地图
      *
-     * <p>用于生成随机、非密集游戏地图，并写入游戏数据game.mapMatrix。</p>
+     * <p>用于生成随机、非密集游戏地图。</p>
+     *
+     * <p>各记号含义：
+     * <ul>
+     *     <li>负数：-1表示地雷；-2表示虚拟雷</li>
+     *     <li>非负数：最外圈表示空；内部表示周边雷数</li>
+     * </ul>
+     * </p>
      *
      * <p>注：请在鼠标单击第一次后使用！</p>
      *
      * @param xClicked 鼠标所单击的方块的X坐标
      * @param yClicked 鼠标所单击的方块的Y坐标
+     * @return 生成好的游戏地图
      */
     public byte[][] generateMap (int xClicked, int yClicked){
         int mineSet = 0; //记录已经布了多少雷
@@ -63,6 +71,16 @@ public class MapGenerator {
         return map;
     }
 
+    /**
+     * <p>方法：密度测试</p>
+     *
+     * <p>如果该位点满足周边8格至少有1个大于0、周边雷的周边雷数不为7，返回true，否则返回false</p>
+     *
+     * @param map 地图
+     * @param ranX 该位点X坐标
+     * @param ranY 该位点Y坐标
+     * @return true：可以在这里放雷；false：不可以在这里放雷
+     */
     private boolean densityTest(byte[][] map, int ranX, int ranY){
         boolean testValue;
 
@@ -97,6 +115,18 @@ public class MapGenerator {
 
     }
 
+    /**
+     * <p>设置边界标记</p>
+     *
+     * <p>注：Save.game.map和定义在本类中的map比实际展示的游戏地图周围大一圈，以防判断周边雷相关方法发生数组
+     * 越界，带来诸多麻烦。</p>
+     *
+     * <p>此方法将map的最外圈赋值为-2，第二圈除四角外赋值3，第二圈四角赋值5。</p>
+     *
+     * <p>可使用removeBoundaryMarks将该标记去除</p>
+     *
+     * @param map 地图
+     */
     private void setBoundaryMarks(byte[][] map) {
         /* 最外圈赋值-2 */
         for (int i = 0; i < game.getBlockNumX() + 1; i++){
@@ -126,6 +156,16 @@ public class MapGenerator {
 
     }
 
+    /**
+     * <p>去除边界标记</p>
+     *
+     * <p>注：Save.game.map和定义在本类中的map比实际展示的游戏地图周围大一圈，以防判断周边雷相关方法发生数组
+     * 越界，带来诸多麻烦。</p>
+     *
+     * <p>此方法将removeBoundaryMarks设置的标记回退。</p>
+     *
+     * @param map 地图
+     */
     private void removeBoundaryMarks(byte[][] map) {
         /* 最外圈赋值0 */
         for (int i = 0; i <= game.getBlockNumX() + 1; i++){
@@ -139,35 +179,19 @@ public class MapGenerator {
 
         /* 次外圈非四角减3 */
         for (int i = 2; i < game.getBlockNumX() - 1; i++){
-            if (map[i][1] > 0){
-                map[i][1] -= 3;
-            }
-            if (map[i][game.getBlockNumY()] > 0){
-                map[i][game.getBlockNumY()] -= 3;
-            }
+            if (map[i][1] > 0){ map[i][1] -= 3; }
+            if (map[i][game.getBlockNumY()] > 0){ map[i][game.getBlockNumY()] -= 3; }
         }
         for (int i = 2; i < game.getBlockNumY() - 1; i++){
-            if (map[1][i] > 0){
-                map[1][i] -= 3;
-            }
-            if (map[game.getBlockNumX()][i] > 0){
-                map[game.getBlockNumX()][i] -= 3;
-            }
+            if (map[1][i] > 0){ map[1][i] -= 3; }
+            if (map[game.getBlockNumX()][i] > 0){ map[game.getBlockNumX()][i] -= 3; }
         }
 
         /* 次外圈四角减5 */
-        if (map[1][1] > 0){
-            map[1][1] -= 5;
-        }
-        if (map[1][game.getBlockNumY()] > 0){
-            map[1][game.getBlockNumY()] -= 5;
-        }
-        if (map[game.getBlockNumX()][1] > 0) {
-            map[game.getBlockNumX()][1] -= 5;
-        }
-        if (map[game.getBlockNumX()][game.getBlockNumY()] > 0) {
-            map[game.getBlockNumX()][game.getBlockNumY()] -= 5;
-        }
+        if (map[1][1] > 0){ map[1][1] -= 5; }
+        if (map[1][game.getBlockNumY()] > 0){ map[1][game.getBlockNumY()] -= 5; }
+        if (map[game.getBlockNumX()][1] > 0) { map[game.getBlockNumX()][1] -= 5; }
+        if (map[game.getBlockNumX()][game.getBlockNumY()] > 0) { map[game.getBlockNumX()][game.getBlockNumY()] -= 5; }
 
     }
 
