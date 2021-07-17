@@ -6,7 +6,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 
 /**
- * <strong><big>档案菜单  Profile Menu</big></strong>
+ * <strong>档案菜单  Profile Menu</strong>
  *
  * <p>可添加至菜单栏的档案相关控件组，包含存储档案、读取档案、查看档案三项内容。</p>
  *

@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 import resources.graphics.ICSetter;
 
 /**
- * <strong><big>角色卡片·绿  Character Card · Green</big></strong>
+ * <strong>角色卡片·绿  Character Card · Green</strong>
  *
  * <p>展示在游戏运行界面的绿队角色小卡片。</p>
  *
@@ -22,9 +22,9 @@ public class GreCard extends CharaCard {
      *
      * <p>基本用法：<br>
      * <code>
-     *     Group greCardGroup = new Group();<br>
-     *     GreCard greCard = new GreCard(greCardGroup);<br>
-     *     root.getChildren().addAll(greCard);<br>
+     * 　　Group greCardGroup = new Group();<br>
+     * 　　GreCard greCard = new GreCard(greCardGroup);<br>
+     * 　　root.getChildren().addAll(greCard);<br>
      * </code>
      * 能创建并向根组里加入一个绿队角色卡片。
      * </p>

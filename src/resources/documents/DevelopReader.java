@@ -15,7 +15,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * <strong><big>开发日志  Develop Log</big></strong>
+ * <strong>开发日志  Develop Log</strong>
  *
  * <p>展示游戏的开发日志。</p>
  *

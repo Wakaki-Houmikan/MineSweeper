@@ -4,7 +4,7 @@ package resources.graphics;
 import javafx.scene.image.ImageView;
 
 /**
- * <strong><big>背景设置器  Background Setter</big></strong>
+ * <strong>背景设置器  Background Setter</strong>
  *
  * <p>内置src/resources/graphics/BG下用ImageView打包的大型图片，用于设置页面的背景图片。每张图只能使用一次。</p>
  *

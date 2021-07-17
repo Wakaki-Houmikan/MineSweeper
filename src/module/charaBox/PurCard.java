@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 import resources.graphics.ICSetter;
 
 /**
- * <strong><big>角色卡片·紫  Character Card · Purple</big></strong>
+ * <strong>角色卡片·紫  Character Card · Purple</strong>
  *
  * <p>展示在游戏运行界面的紫队角色小卡片。</p>
  *
@@ -22,9 +22,9 @@ public class PurCard extends CharaCard {
      *
      * <p>基本用法：<br>
      * <code>
-     *     Group purCardGroup = new Group();<br>
-     *     PurCard purCard = new PurCard(purCardGroup);<br>
-     *     root.getChildren().addAll(purCard);<br>
+     * 　　Group purCardGroup = new Group();<br>
+     * 　　PurCard purCard = new PurCard(purCardGroup);<br>
+     * 　　root.getChildren().addAll(purCard);<br>
      * </code>
      * 能创建并向根组里加入一个紫队角色卡片。
      * </p>

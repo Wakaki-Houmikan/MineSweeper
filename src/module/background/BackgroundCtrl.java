@@ -1,4 +1,4 @@
-package module.backgroundCtrl;
+package module.background;
 
 public class BackgroundCtrl {
 }

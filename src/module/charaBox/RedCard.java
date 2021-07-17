@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 import resources.graphics.ICSetter;
 
 /**
- * <strong><big>角色卡片·红  Character Card · Red</big></strong>
+ * <strong>角色卡片·红  Character Card · Red</strong>
  *
  * <p>展示在游戏运行界面的红队角色小卡片。</p>
  *
@@ -22,9 +22,9 @@ public class RedCard extends CharaCard {
      *
      * <p>基本用法：<br>
      * <code>
-     *     Group redCardGroup = new Group();<br>
-     *     RedCard redCard = new RedCard(redCardGroup);<br>
-     *     root.getChildren().addAll(redCard);<br>
+     * 　　Group redCardGroup = new Group();<br>
+     * 　　RedCard redCard = new RedCard(redCardGroup);<br>
+     * 　　root.getChildren().addAll(redCard);<br>
      * </code>
      * 能创建并向根组里加入一个红队角色卡片。
      * </p>

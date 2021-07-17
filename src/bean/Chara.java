@@ -1,11 +1,9 @@
 package bean;
 
-import java.io.Serializable;
-
 /**
- * <strong><big>角色数据  Character Data</big></strong>
- *
- * <p>记录游戏中各角色的数据。</p>
+ * <strong>角色数据  Character Data</strong>
+ * <p>
+ * 记录游戏中各角色的数据。
  *
  * @author 分柿方橙
  * @version ver 1.2 (2021.7.7)
@@ -13,23 +11,38 @@ import java.io.Serializable;
  */
 public class Chara {
 
-    private boolean choosed; // 选中
-    private String color; // 颜色
-    private String name; // 名字
-    private int score; // 分数
-    private int miss;  // 失误
+    /** 选中 */
+    private boolean chosen;
+    /** 颜色 */
+    private String color;
+    /** 名字 */
+    private String name;
+    /** 分数 */
+    private int score;
+    /** 失误 */
+    private int miss;
 
-    private int timeLim; // 时间上限
-    private int stepLim; // 步数上限
-    private int lifeLim; // 生命上限
+    /** 时间上限 */
+    private int timeLim;
+    /** 步数上限 */
+    private int stepLim;
+    /** 生命上限 */
+    private int lifeLim;
 
-    private int timeLeft; // 剩余时间
-    private int stepLeft; // 剩余步数
-    private int lifeLeft; // 剩余生命
+    /** 剩余时间 */
+    private int timeLeft;
+    /** 剩余步数 */
+    private int stepLeft;
+    /** 剩余生命 */
+    private int lifeLeft;
 
+    /**  */
     private boolean onRound; // 是不是现在回合
+    /**  */
     private boolean robot;   // 是不是机器人
+    /**  */
     private boolean dead;    // 有没有死
+    /**  */
     private boolean win;     // 有没有赢
 
     /**
@@ -41,7 +54,8 @@ public class Chara {
 
     /**
      * 一般构造器：记录角色的属性值。
-     * @param choosed 是否选中（这里应为true）
+     *
+     * @param chosen 是否选中（这里应为true）
      * @param color 颜色（红、蓝、绿、紫）
      * @param name 角色名
      * @param score 得分
@@ -57,11 +71,11 @@ public class Chara {
      * @param dead 是否处于死亡状态
      * @param win 是否被判定为胜利
      */
-    public Chara(boolean choosed, String color, String name, int score, int miss,
+    public Chara(boolean chosen, String color, String name, int score, int miss,
                  int timeLim, int stepLim, int lifeLim,
                  int timeLeft, int stepLeft, int lifeLeft,
                  boolean onRound, boolean robot, boolean dead, boolean win) {
-        this.choosed = choosed;
+        this.chosen = chosen;
         this.color = color;
         this.name = name;
         this.score = score;
@@ -79,15 +93,17 @@ public class Chara {
     }
 
     /**
-     * 简单构造器：只将choosed（“是否选中”）属性记录为false。
+     * 简单构造器：只将chosen（“是否选中”）属性记录为false。
+     *
+     * @param chosen 是否选中
      */
-    public Chara(boolean choosed) {
-        this.choosed = choosed;
+    public Chara(boolean chosen) {
+        this.chosen = chosen;
     }
 
     /* 一系列的set get方法 */
-    public boolean isChoosed() { return choosed; }
-    public void setChoosed(boolean choosed) { this.choosed = choosed; }
+    public boolean isChosen() { return chosen; }
+    public void setChosen(boolean chosen) { this.chosen = chosen; }
 
     public String getColor() { return color; }
     public void getColor(String color) { this.color = color; }

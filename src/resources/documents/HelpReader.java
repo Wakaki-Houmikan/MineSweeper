@@ -15,7 +15,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * <strong><big>帮助文档  Help Document</big></strong>
+ * <strong>帮助文档  Help Document</strong>
  *
  * <p>展示游戏的帮助文档。</p>
  *

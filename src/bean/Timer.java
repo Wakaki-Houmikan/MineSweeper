@@ -3,19 +3,17 @@ package bean;
 import java.io.Serializable;
 
 /**
- * <strong><big>计时器数据  Time Data</big></strong>
- *
- * <p>搭配时间线动画TimelimeGame和TimelineChara，利用自带变量value记录游戏内时间的变化。由于这些动画被设置成每0.1秒刷新一次，现实中每过1秒，
- * value值会增加10，使用时需注意数据转换。</p>
+ * <strong>计时器数据  Time Data</strong>
+ * <p>
+ * 搭配时间线动画TimelimeGame和TimelineChara，利用自带变量value记录游戏内时间的变化。由于这些动画被设置成每0.1秒刷新一次，现实中每过1秒，
+ * value值会增加10，使用时需注意数据转换。
  *
  * @author 分柿方橙
  * @version ver 1.1 (2021.7.12)
  * @since ver 1.1.0 (2021.7.5)
  */
 public class Timer {
-    /**
-     * 时间值
-     */
+    /** 时间值 */
     private int value;
 
     /**
@@ -42,11 +40,15 @@ public class Timer {
 
     /**
      * 获取值：获取计时器的时间值。
+     *
+     * @return int类型时间值
      */
     public int getValue() { return value; }
 
     /**
      * 设置值：获取计时器的时间值。
+     *
+     * @param value 提供的时间值
      */
     public void setValue(int value) { this.value = value; }
 
@@ -60,14 +62,15 @@ public class Timer {
     /**
      * 时间值转换为时分制时间：
      *
+     * @param modTime 游戏时间模式
      * @return 时分制时间
      */
-    public String ValuetoTime(byte mode){
+    public String ValuetoTime(byte modTime){
         int hour; int minu;
         String h; String m;
 
-        if (mode == 1){ return "09:00";
-        } else if (mode == 2){ return "21:00";
+        if (modTime == 1){ return "09:00";
+        } else if (modTime == 2){ return "21:00";
         } else {
             if (( value / 10 ) % 480 < 300){ hour = (( value / 10 ) / 20 + 9) % 24;
             } else { hour = (( value / 10 ) / 20 + 9 - 24) % 24;

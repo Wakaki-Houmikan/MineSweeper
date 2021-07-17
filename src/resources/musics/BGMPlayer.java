@@ -6,7 +6,7 @@ import javafx.scene.media.MediaPlayer;
 import java.io.File;
 
 /**
- * <big>背景音乐播放器工具  BGM Player</big>
+ * <strong>背景音乐播放器工具  BGM Player</strong>
  *
  * <p>可读取BGM文件夹里的音乐，进行音乐播放相关操作。</p>
  *

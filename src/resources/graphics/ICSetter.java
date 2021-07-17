@@ -3,7 +3,7 @@ package resources.graphics;
 import javafx.scene.image.Image;
 
 /**
- * <strong><big>图标设置器  Icon Setter</big></strong>
+ * <strong>图标设置器  Icon Setter</strong>
  *
  * <p>内置src/resources/graphics/IC下用Image打包的游戏图标，可重复使用。</p>
  *

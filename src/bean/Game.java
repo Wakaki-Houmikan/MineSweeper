@@ -3,9 +3,9 @@ package bean;
 import java.io.Serializable;
 
 /**
- * <strong><big>游戏数据  Game Data</big></strong>
- *
- * <p>记录游戏数据。</p>
+ * <strong>游戏数据  Game Data</strong>
+ * <p>
+ * 记录游戏本身需要的数据。
  *
  * @author 分柿方橙
  * @version ver 1.4 (2021.7.7)

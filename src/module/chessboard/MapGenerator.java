@@ -3,7 +3,7 @@ package module.chessboard;
 import static bean.Save.game;
 
 /**
- * <strong><big>地图生成器  Map Generator</big></strong>
+ * <strong>地图生成器  Map Generator</strong>
  *
  * <p>用于生成随机、非密集游戏地图，并写入游戏数据game.mapMatrix。</p>
  *
@@ -20,12 +20,11 @@ public class MapGenerator {
      *
      * <p>用于生成随机、非密集游戏地图。</p>
      *
-     * <p>各记号含义：
+     * <p>各记号含义：</p>
      * <ul>
      *     <li>负数：-1表示地雷；-2表示虚拟雷</li>
      *     <li>非负数：最外圈表示空；内部表示周边雷数</li>
      * </ul>
-     * </p>
      *
      * <p>注：请在鼠标单击第一次后使用！</p>
      *

@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 import resources.graphics.ICSetter;
 
 /**
- * <strong><big>角色卡片·蓝  Character Card · Blue</big></strong>
+ * <strong>角色卡片·蓝  Character Card · Blue</strong>
  *
  * <p>展示在游戏运行界面的蓝队角色小卡片。</p>
  *
@@ -22,9 +22,9 @@ public class BluCard extends CharaCard {
      *
      * <p>基本用法：<br>
      * <code>
-     *     Group bluCardGroup = new Group();<br>
-     *     BluCard bluCard = new BluCard(bluCardGroup);<br>
-     *     root.getChildren().addAll(bluCard);<br>
+     * 　　Group bluCardGroup = new Group();<br>
+     * 　　BluCard bluCard = new BluCard(bluCardGroup);<br>
+     * 　　root.getChildren().addAll(bluCard);<br>
      * </code>
      * 能创建并向根组里加入一个蓝队角色卡片。
      * </p>

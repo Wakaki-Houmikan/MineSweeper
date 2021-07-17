@@ -14,7 +14,9 @@ import javafx.stage.Stage;
 import resources.graphics.BGSetter;
 
 /**
- * <strong><big>Project Mine Sweeper Java Edition</big></strong>
+ * <strong><big>扫雷 · Java版</big></strong>
+ * <p>
+ * <strong>Project Mine Sweeper Java Edition</strong>
  *
  * @author 久置乙醚工作室 · 分柿方橙Spikey
  * @version ver 1.0 (2021.7.1)
@@ -77,7 +79,11 @@ public class MineSweeper extends Application {
 
     }
 
-    /* 点击开始游戏 */
+    /**
+     * 点击开始游戏：转入模式选择界面
+     *
+     * @param event 点击开始游戏
+     */
     public void preButStartGame(ActionEvent event) {
         /* 关闭现窗口GameStartPane */
         Stage primaryStage = (Stage)startGame.getScene().getWindow();
@@ -86,6 +92,11 @@ public class MineSweeper extends Application {
         new ChooseMode();
     }
 
+    /**
+     * 点击读取存档：读取存档并复原游戏进度
+     *
+     * @param event 点击读取存档
+     */
     public void preButLoadGame(ActionEvent event) {
         /* 点击读取存档后进行的操作 */
 //        try {
@@ -108,14 +119,29 @@ public class MineSweeper extends Application {
 //        }
     }
 
+    /**
+     * 点击排行榜：打开排行榜页面
+     *
+     * @param event 点击排行榜
+     */
     public void preButRankingList(ActionEvent event) {
 //        new RankingPlane();
     }
 
+    /**
+     * 点击开发日志：打开开发日志界面
+     *
+     * @param event 点击开发日志
+     */
     public void preButDevelopLog(ActionEvent event) {
         new DevelopReader();
     }
 
+    /**
+     * 主方法：程序入口
+     *
+     * @param args 加载程序信息
+     */
     public static void main(String[] args)
     {
         launch(args);

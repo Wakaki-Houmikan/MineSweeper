@@ -4,7 +4,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 
 /**
- * <strong><big>帮助菜单  Graphic Help</big></strong>
+ * <strong>帮助菜单  Graphic Help</strong>
  *
  * <p>可添加至菜单栏的帮助相关控件组，包含关于扫雷、更新日志两项内容。</p>
  *

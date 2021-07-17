@@ -4,7 +4,7 @@ import javafx.scene.Group;
 import javafx.scene.control.*;
 
 /**
- * <strong><big>菜单栏  Menu Bar</big></strong>
+ * <strong>菜单栏  Menu Bar</strong>
  *
  * <p>游戏运行界面的菜单栏，包含游戏、档案、音乐、图像、帮助五组内容。</p>
  *

@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
 /**
- * <strong><big>游戏菜单  Game Menu</big></strong>
+ * <strong>游戏菜单  Game Menu</strong>
  *
  * <p>可添加至菜单栏的游戏相关控件组，包含暂停游戏、继续游戏、排行榜、重玩本轮、新游戏、退出游戏六项内容。</p>
  *

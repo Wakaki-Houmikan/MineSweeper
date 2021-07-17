@@ -8,7 +8,7 @@ import javafx.scene.control.ToggleGroup;
 import resources.musics.BGMPlayer;
 
 /**
- * <strong><big>音乐菜单  Music Menu</big></strong>
+ * <strong>音乐菜单  Music Menu</strong>
  *
  * <p>可添加至菜单栏的音乐相关控件组，包含播放、停止、设置音量、设置曲目等16项内容。</p>
  *

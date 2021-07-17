@@ -11,20 +11,19 @@ import javafx.util.Duration;
 import java.util.Random;
 
 /**
- * <strong><big>烟雾动画  Smog Animation</big></strong>
+ * <strong>烟雾动画  Smog Animation</strong>
  *
  * <p>该动画借助TranslateTransition（位移动画）类，控制400个“烟粒”以随机的速率、起止点反复运动，以实现烟雾效果。</p>
  *
- * <p>关于该动画的主要技术原理，参见其父类（Climate类）帮助文档{@link /src/Module/Animation/Climate.java}。</p>
+ * <p>关于该动画的主要技术原理，参见其父类（Climate类）帮助文档。</p>
  *
- * <p>单粒烟雾的运动参数：<br>
+ * <p>单粒烟雾的运动参数：</p>
  * <ul>
  * <li>起始点：X坐标为-500~2400像素间的随机值，Y坐标为1180像素；</li>
  * <li>终止点：X坐标为起始点X坐标左右1000像素内的随机值，Y坐标为随机值；</li>
  * <li>运动周期：10~40秒间的随机值；</li>
  * <li>运动速度：起始点与中止点间的直线距离 / 运动周期。</li>
  * </ul>
- * </p>
  *
  * @author 分柿方橙
  * @version ver 0.3 (2021.7.13)
@@ -33,7 +32,7 @@ import java.util.Random;
 public class Smog extends Climate {
 
     /**
-     * <p>含参建造器：添加烟雾动画</p>
+     * 含参建造器：添加烟雾动画
      *
      * <p>用法参见Climate类帮助文档。</p>
      *

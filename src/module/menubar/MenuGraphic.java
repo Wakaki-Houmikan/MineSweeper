@@ -8,7 +8,7 @@ import javafx.scene.control.ToggleGroup;
 import module.animation.Climate;
 
 /**
- * <strong><big>图像菜单  Graphic Menu</big></strong>
+ * <strong>图像菜单  Graphic Menu</strong>
  *
  * <p>可添加至菜单栏的图像相关控件组，包含图片背景、单色背景、动画开、动画关四项内容。</p>
  *

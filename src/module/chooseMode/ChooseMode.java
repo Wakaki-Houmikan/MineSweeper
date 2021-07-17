@@ -8,7 +8,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * <strong><big>模式选择（界面）  Choose Mode</big></strong>
+ * <strong>模式选择器  Choose Mode</strong>
  *
  * <p>玩家进行游戏模式选择，程序记录选项。</p>
  *
@@ -17,6 +17,9 @@ import javafx.stage.Stage;
  * @since ver 1.1.2 (2021.7.8)
  */
 public class ChooseMode {
+    /* 创建一个Stage */
+    public Stage modeSelectStage;
+
     /* 初始数据 */
     static String blockNumX = "16"; // 宽度
     static String blockNumY = "16"; // 高度
@@ -38,10 +41,6 @@ public class ChooseMode {
     static boolean modLife; // 多人·开启生命
     static boolean modCheat; // 多人·开启侦察
     static boolean modCure; // 多人·开启治愈
-
-    /* ---------------------------------------------以下是GUI---------------------------------------------------------- */
-
-    public Stage modeSelectStage;
 
     /* 模式介绍 */
     static Text modeName = new Text();
@@ -92,8 +91,12 @@ public class ChooseMode {
     static Button ye = new Button("确定");
     static Button no = new Button("取消");
 
+    /* 根组 */
     Group root;
 
+    /**
+     * 构造器：新建一个模式选择器页面
+     */
     public ChooseMode(){
         root = new SetGUI().setGUI();
         new SetEvent().setEvent();

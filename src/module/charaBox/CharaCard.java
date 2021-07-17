@@ -12,18 +12,18 @@ import javafx.scene.text.Text;
 import resources.graphics.ICSetter;
 
 /**
- * <strong><big>角色卡片  Character Card</big></strong>
+ * <strong>角色卡片  Character Card</strong>
  *
  * <p>展示在游戏运行界面的角色小卡片，展示角色状态头像、名字、剩余时间、剩余步数、得分、失误、生命值，状态头像表面配有一个全
  * 透明按钮，用于设置托管。</p>
  *
  * <p>以红队小卡片为例：</p>
  *
- * <p>首先需要创建并向根组里加入一个角色卡片：</p>
+ * <p>首先需要创建并向根组里加入一个角色卡片：<br>
  * <code>
- *     Group redCardGroup = new Group();<br>
- *     CharaCard redCard = new RedCard(redCardGroup);<br>
- *     root.getChildren().addAll(redCard);<br>
+ * 　　Group redCardGroup = new Group();<br>
+ * 　　CharaCard redCard = new RedCard(redCardGroup);<br>
+ * 　　root.getChildren().addAll(redCard);<br>
  * </code>
  * </p>
  *
@@ -31,13 +31,13 @@ import resources.graphics.ICSetter;
  * <ul>
  *     <li>状态图像(Image)/生命值贴图(Image)：<br>
  *     <code>
- *         redCard.status.setImage(ICSetter.FishRed);<br>
- *         redCard.life4.setImage(null);
+ * 　　redCard.status.setImage(ICSetter.FishRed);<br>
+ * 　　redCard.life4.setImage(null);
  *     </code>
  *     </li>
  *     <li>剩余时间(Text)、剩余步数(Text)、得分(Text)、失误(Text)：<br>
  *     <code>
- *         redCard.timeLeft.setText("222");
+ * 　　redCard.timeLeft.setText("222");
  *     </code>
  *     </li>
  * </ul>
@@ -54,12 +54,18 @@ public class CharaCard{
     Text missLab = new Text("失误：");
     Text lifeLab = new Text("生命值：");
 
+    /** 角色状态 */
     public ImageView status = new ImageView();
 
+    /** 1点生命值 */
     public ImageView life1 = new ImageView(ICSetter.Life);
+    /** 2点生命值 */
     public ImageView life2 = new ImageView(ICSetter.Life);
+    /** 3点生命值 */
     public ImageView life3 = new ImageView(ICSetter.Life);
+    /** 4点生命值 */
     public ImageView life4 = new ImageView(ICSetter.Life);
+    /** 5点生命值 */
     public ImageView life5 = new ImageView(ICSetter.Life);
 
     /** 角色名字 */
@@ -81,9 +87,9 @@ public class CharaCard{
      *
      * <p>基本用法（以红队角色为例）：<br>
      * <code>
-     *     Group redCardGroup = new Group();<br>
-     *     RedCard redCard = new RedCard(redCardGroup);<br>
-     *     root.getChildren().addAll(redCard);<br>
+     * 　　Group redCardGroup = new Group();<br>
+     * 　　RedCard redCard = new RedCard(redCardGroup);<br>
+     * 　　root.getChildren().addAll(redCard);<br>
      * </code>
      * 能创建并向根组里加入一个红色角色卡片。
      * </p>
