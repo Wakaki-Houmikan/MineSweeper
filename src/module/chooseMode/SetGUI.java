@@ -8,10 +8,24 @@ import javafx.scene.text.Text;
 
 import static module.chooseMode.ChooseMode.*;
 
+/**
+ * <strong>设置排版  Set GUI</strong>
+ *
+ * <p>为模式选择器里的按钮、文本框设置排版。</p>
+ *
+ * @author 分柿方橙
+ * @version ver 1.0 (2021.7.16)
+ * @since ver 1.1.8 (2021.7.16)
+ */
 class SetGUI {
 
     Font mainFont = new Font("Arial",16); //字体：等线16号
 
+    /**
+     * 方法·设置排版：为模式选择器里的按钮、文本框设置排版。
+     *
+     * @return 包含所有新增GUI组件的Group。
+     */
     Group setGUI(){
 
         /* 三个长方形 */

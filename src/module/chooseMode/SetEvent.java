@@ -7,7 +7,20 @@ import module.gamePlay.GamePlay;
 
 import static module.chooseMode.ChooseMode.*;
 
+/**
+ * <strong>设置事件  Set Event</strong>
+ *
+ * <p>为模式选择器里的按钮、文本框设置触发事件。</p>
+ *
+ * @author 分柿方橙
+ * @version ver 1.0 (2021.7.16)
+ * @since ver 1.1.8 (2021.7.16)
+ */
 class SetEvent {
+
+    /**
+     * 方法·设置事件：为模式选择器里的按钮、文本框设置触发事件。
+     */
     void setEvent(){
         /* 难度设置 */
         easy.setOnAction(this::processButtonEasy);

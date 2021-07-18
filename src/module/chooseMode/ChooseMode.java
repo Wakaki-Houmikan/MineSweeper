@@ -13,7 +13,7 @@ import javafx.stage.Stage;
  * <p>玩家进行游戏模式选择，程序记录选项。</p>
  *
  * @author 分柿方橙
- * @version ver 1.0 (2021.7.8)
+ * @version ver 1.2 (2021.7.16)
  * @since ver 1.1.2 (2021.7.8)
  */
 public class ChooseMode {

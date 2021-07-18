@@ -10,8 +10,20 @@ import java.util.Random;
 
 import static module.chooseMode.ChooseMode.*;
 
+/**
+ * <strong>数据分析  Data Analysis</strong>
+ *
+ * <p>对玩家在模式选择器中所选参数进行分析整理，写入游戏档案。</p>
+ *
+ * @author 分柿方橙
+ * @version ver 1.0 (2021.7.16)
+ * @since ver 1.1.8 (2021.7.16)
+ */
 class DataAnalysis{
 
+    /**
+     * 方法·数据分析：对玩家在模式选择器中所选参数进行分析整理，写入游戏档案。
+     */
     void dataAnalysis(){
         /* 用于创建新游戏的数据：ng = newGame */
         int ng_x; int ng_y; int ng_m; byte ng_time; byte ng_land; byte ng_charaNum = 0;
